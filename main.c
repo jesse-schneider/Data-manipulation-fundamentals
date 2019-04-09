@@ -1,30 +1,51 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#define SIZE 100
+#define SIZE 500
 
 struct Node {
     int count;
     struct Node *next;
     char word[SIZE];
 };
+typedef struct Node NODE;
 
-struct Node *head = NULL;
-struct Node *current = NULL;
+NODE *head = NULL;
 
-struct Node* insertNewNode(char wordIn[])
+NODE * createNode(char wordIn[])
 {
-    struct Node *newNode = (struct node*) calloc(1, sizeof(struct Node));
-    strncpy(newNode->word, wordIn, SIZE);
-    newNode->count = 1;
-    newNode->next = head;
-    head = newNode;
+    NODE *newNode = (NODE*) malloc(sizeof(NODE));
+    if (newNode == NULL)
+    {
+        printf("Failed to create new node");
+    }
+    else 
+    {
+        strncpy(newNode->word, wordIn, SIZE);
+        newNode->count = 1;
+        newNode->next = NULL;
+    }
+    return newNode;
+}
+
+void insertAtHead(NODE *newNode)
+{
+    NODE *ptr = head;
+    
+    if(ptr == NULL)
+    {
+        head = newNode;
+    }
+    else 
+    {
+        newNode->next = head;
+        head = newNode;
+    }
 }
 
 void printList() 
 {
     struct Node *nextNode = head;
-    int count = 0;
     
     while(nextNode != NULL)
     {
@@ -36,27 +57,35 @@ void printList()
 int validWord(char name[], int len)
 {
     int valid = 1;
-    int *valptr = NULL;
-    valptr = &valid;
-    char ch;
-    ch = name[0];
+    int isUp = 0, isLow = 0;
         
-    if(isupper(ch) == 0)
+    if(name[0] < 'A' || name[0] > 'Z')
     {
         return valid;
     }
-        for(int i = 0; i < len; i++)
+        for(int i = 0; name[i] != '\0'; i++)
         {
-            if (isalpha(name[i]) == 0)
+            if (name[i] >= 'A' && name[i] <= 'Z')
             {
-                *valptr = 1;
+                isUp = 1;
+
+            } else if (name[i] >= 'a' && name[i] <= 'z')
+            {
+                isLow = 1;
+
+            } else
+            { 
+                valid = 1;
                 break;
-            } else 
+            }
+            
+            if(isUp == 1 && isLow == 1)
             {
-                *valptr = 0;
+                valid = 0;
             }
         }
-            return valid;
+        
+        return valid;
 }
 
 int checkForDuplicates(char word[]) 
@@ -65,12 +94,11 @@ int checkForDuplicates(char word[])
     
      if(head == NULL) 
     {
-        return NULL;
+        return 0;
     }
     
     while(nextNode != NULL)
     {
-        
         if (strcmp(word, nextNode->word) == 0)
         {
             nextNode->count++;
@@ -87,37 +115,38 @@ int main()
     char name[SIZE];
     int count;
     
-    inputfile = fopen("/home/jesse/Documents/ProgrammingFund/AssignmentTask1/australia.txt", "r");
+    inputfile = fopen("/home/jesse/Documents/ProgrammingFund/AssignmentTask1/united_states.txt", "r");
     
     if (inputfile == NULL) 
     {
         printf("Error opening file. \n");
         return 1;
     }
-    count = 0;
     
     while (fscanf(inputfile, "%s", name) == 1)
     {
+            
         int len = strlen(name);
         if (len < 4)
             continue;
      
         int valid = validWord(name, len);
+        int *valptr = NULL;
+        valptr = &valid;
         
         if (checkForDuplicates(name) == 1) 
         {
-            valid = 1;
+            *valptr = 1;
         }
         
         if (valid == 0)
         {
-            insertNewNode(name);
+            NODE *addToList = createNode(name);
+            insertAtHead(addToList);
             count++;
         }
     }
     printList();
-    printf("Number of iterations: %i \n", count);
-    
     fclose(inputfile);
     return 0;
 }
