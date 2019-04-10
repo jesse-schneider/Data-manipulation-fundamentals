@@ -43,12 +43,13 @@ void insertAtHead(NODE *newNode)
     }
 }
 
-void printList() 
+void printList(FILE *outfile)
 {
     struct Node *nextNode = head;
     
     while(nextNode != NULL)
     {
+        fprintf(outfile, " %7i %s \n", nextNode->count, nextNode->word);
         printf(" %7i %s \n", nextNode->count, nextNode->word);
         nextNode = nextNode->next;
     }
@@ -112,11 +113,13 @@ int checkForDuplicates(char word[])
 int main()
 {
     FILE *inputfile = NULL;
+    FILE *outfile = NULL;
     char name[SIZE];
-    int count;
+    int count = 0;
     
-    inputfile = fopen("/home/jesse/Documents/ProgrammingFund/AssignmentTask1/united_states.txt", "r");
-    
+   inputfile = fopen("C:\\Users\\Jesse\\CLionProjects\\Prog-fund\\queensland.txt", "r");
+   outfile = fopen("C:\\Users\\Jesse\\CLionProjects\\Prog-fund\\queensland.histogram.txt", "w");
+
     if (inputfile == NULL) 
     {
         printf("Error opening file. \n");
@@ -127,8 +130,8 @@ int main()
     {
             
         int len = strlen(name);
-        if (len < 4)
-            continue;
+//        if (len < 4)
+//            continue;
      
         int valid = validWord(name, len);
         int *valptr = NULL;
@@ -146,8 +149,10 @@ int main()
             count++;
         }
     }
-    printList();
+    printList(outfile);
+    printf("Number of unique words found: %d", count);
     fclose(inputfile);
+    fclose(outfile);
     return 0;
 }
 
