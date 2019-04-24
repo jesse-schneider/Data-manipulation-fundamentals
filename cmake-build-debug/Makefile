@@ -122,6 +122,33 @@ Prog_fund/fast:
 	$(MAKE) -f CMakeFiles\Prog_fund.dir\build.make CMakeFiles/Prog_fund.dir/build
 .PHONY : Prog_fund/fast
 
+helpers.obj: helpers.c.obj
+
+.PHONY : helpers.obj
+
+# target to build an object file
+helpers.c.obj:
+	$(MAKE) -f CMakeFiles\Prog_fund.dir\build.make CMakeFiles/Prog_fund.dir/helpers.c.obj
+.PHONY : helpers.c.obj
+
+helpers.i: helpers.c.i
+
+.PHONY : helpers.i
+
+# target to preprocess a source file
+helpers.c.i:
+	$(MAKE) -f CMakeFiles\Prog_fund.dir\build.make CMakeFiles/Prog_fund.dir/helpers.c.i
+.PHONY : helpers.c.i
+
+helpers.s: helpers.c.s
+
+.PHONY : helpers.s
+
+# target to generate assembly for a file
+helpers.c.s:
+	$(MAKE) -f CMakeFiles\Prog_fund.dir\build.make CMakeFiles/Prog_fund.dir/helpers.c.s
+.PHONY : helpers.c.s
+
 main.obj: main.c.obj
 
 .PHONY : main.obj
@@ -149,6 +176,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles\Prog_fund.dir\build.make CMakeFiles/Prog_fund.dir/main.c.s
 .PHONY : main.c.s
 
+task2.obj: task2.c.obj
+
+.PHONY : task2.obj
+
+# target to build an object file
+task2.c.obj:
+	$(MAKE) -f CMakeFiles\Prog_fund.dir\build.make CMakeFiles/Prog_fund.dir/task2.c.obj
+.PHONY : task2.c.obj
+
+task2.i: task2.c.i
+
+.PHONY : task2.i
+
+# target to preprocess a source file
+task2.c.i:
+	$(MAKE) -f CMakeFiles\Prog_fund.dir\build.make CMakeFiles/Prog_fund.dir/task2.c.i
+.PHONY : task2.c.i
+
+task2.s: task2.c.s
+
+.PHONY : task2.s
+
+# target to generate assembly for a file
+task2.c.s:
+	$(MAKE) -f CMakeFiles\Prog_fund.dir\build.make CMakeFiles/Prog_fund.dir/task2.c.s
+.PHONY : task2.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -158,9 +212,15 @@ help:
 	@echo ... rebuild_cache
 	@echo ... Prog_fund
 	@echo ... edit_cache
+	@echo ... helpers.obj
+	@echo ... helpers.i
+	@echo ... helpers.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... task2.obj
+	@echo ... task2.i
+	@echo ... task2.s
 .PHONY : help
 
 

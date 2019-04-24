@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/Jesse/CLionProjects/Prog-fund/helpers.h
+
 C:/Users/Jesse/CLionProjects/Prog-fund/main.c
 stdio.h
 -
@@ -13,4 +15,6 @@ string.h
 -
 stdlib.h
 -
+helpers.h
+C:/Users/Jesse/CLionProjects/Prog-fund/helpers.h
 

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "helpers.h"
 #define SIZE 500
 
 struct Node {
@@ -19,7 +20,7 @@ NODE * createNode(char wordIn[])
     {
         printf("Failed to create new node");
     }
-    else 
+    else
     {
         strncpy(newNode->word, wordIn, SIZE);
         newNode->count = 1;
@@ -31,12 +32,12 @@ NODE * createNode(char wordIn[])
 void insertAtHead(NODE *newNode)
 {
     NODE *ptr = head;
-    
+
     if(ptr == NULL)
     {
         head = newNode;
     }
-    else 
+    else
     {
         newNode->next = head;
         head = newNode;
@@ -46,7 +47,7 @@ void insertAtHead(NODE *newNode)
 void printList(FILE *outfile)
 {
     struct Node *nextNode = head;
-    
+
     while(nextNode != NULL)
     {
         fprintf(outfile, " %7i %s \n", nextNode->count, nextNode->word);
@@ -59,7 +60,7 @@ int validWord(char name[], int len)
 {
     int valid = 1;
     int isUp = 0, isLow = 0;
-        
+
     if(name[0] < 'A' || name[0] > 'Z')
     {
         return valid;
@@ -75,29 +76,29 @@ int validWord(char name[], int len)
                 isLow = 1;
 
             } else
-            { 
+            {
                 valid = 1;
                 break;
             }
-            
+
             if(isUp == 1 && isLow == 1)
             {
                 valid = 0;
             }
         }
-        
+
         return valid;
 }
 
-int checkForDuplicates(char word[]) 
+int checkForDuplicates(char word[])
 {
     struct Node *nextNode = head;
-    
-     if(head == NULL) 
+
+     if(head == NULL)
     {
         return 0;
     }
-    
+
     while(nextNode != NULL)
     {
         if (strcmp(word, nextNode->word) == 0)
@@ -116,32 +117,32 @@ int main()
     FILE *outfile = NULL;
     char name[SIZE];
     int count = 0;
-    
+
    inputfile = fopen("C:\\Users\\Jesse\\CLionProjects\\Prog-fund\\queensland.txt", "r");
    outfile = fopen("C:\\Users\\Jesse\\CLionProjects\\Prog-fund\\queensland.histogram.txt", "w");
 
-    if (inputfile == NULL) 
+    if (inputfile == NULL)
     {
         printf("Error opening file. \n");
         return 1;
     }
-    
+
     while (fscanf(inputfile, "%s", name) == 1)
     {
-            
+
         int len = strlen(name);
-//        if (len < 4)
-//            continue;
-     
+        if (len < 4)
+            continue;
+
         int valid = validWord(name, len);
         int *valptr = NULL;
         valptr = &valid;
-        
-        if (checkForDuplicates(name) == 1) 
+
+        if (checkForDuplicates(name) == 1)
         {
             *valptr = 1;
         }
-        
+
         if (valid == 0)
         {
             NODE *addToList = createNode(name);

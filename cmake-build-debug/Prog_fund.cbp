@@ -74,7 +74,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Jesse/CLionProjects/Prog-fund/helpers.c">
+			<Option target="Prog_fund"/>
+		</Unit>
+		<Unit filename="C:/Users/Jesse/CLionProjects/Prog-fund/helpers.h">
+			<Option target="Prog_fund"/>
+		</Unit>
 		<Unit filename="C:/Users/Jesse/CLionProjects/Prog-fund/main.c">
+			<Option target="Prog_fund"/>
+		</Unit>
+		<Unit filename="C:/Users/Jesse/CLionProjects/Prog-fund/task2.c">
 			<Option target="Prog_fund"/>
 		</Unit>
 		<Unit filename="C:/Users/Jesse/CLionProjects/Prog-fund/CMakeLists.txt">

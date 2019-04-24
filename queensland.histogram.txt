@@ -6,7 +6,6 @@
        1 Glass 
        1 Sound 
        1 Film 
-       1 Far 
        1 OpenStreetMap 
        1 Geographic 
        1 Commons 
@@ -30,22 +29,18 @@
        1 TravelTreks 
        1 Destinations 
        1 Travel 
-       2 Top 
        1 Haines 
        1 Kristof 
        2 Writer 
        2 Planet 
        2 Lonely 
-       1 An 
        2 Long 
        1 Dealing 
        1 Andrea 
        1 Cradduck 
        1 Lucy 
        1 Tinto 
-       1 Rio 
        1 Dusevic 
-       1 Tom 
        1 Railway 
        1 Statistics 
        1 Community 
@@ -71,9 +66,7 @@
        2 Surveying 
        1 Stephen 
        2 Media 
-       1 Or 
        1 Bigger 
-       1 Ian 
        1 Marriages 
        1 Deaths 
        1 Registry 
@@ -83,7 +76,6 @@
        1 Bottoms 
        2 General 
        1 Hunter 
-       1 And 
        1 Mercury 
        1 Maitland 
        1 Blacks 
@@ -103,7 +95,6 @@
        1 Health 
        1 Public 
        1 Eradication 
-       1 Its 
        3 Smallpox 
        2 Cambridge 
        1 Raymond 
@@ -119,9 +110,7 @@
        1 Region 
        1 Swan 
        1 Greater 
-       1 Art 
        1 Rock 
-       1 Old 
        1 Broadcasting 
        1 Talissa 
        1 Botanic 
@@ -132,14 +121,11 @@
        1 Demographic 
        1 Index 
        1 Outline 
-       1 See 
        1 Championship 
        1 Roxy 
-       2 Pro 
        1 Quicksilver 
        1 Game 
        1 Stars 
-       1 All 
        1 Sprint 
        1 Marathon 
        1 Events 
@@ -177,7 +163,6 @@
        1 Nathan 
        1 Griffith 
        1 Lucia 
-       1 St 
        1 Each 
        1 Shires 
        2 Acts 
@@ -196,13 +181,11 @@
        4 Assembly 
        4 Legislative 
        1 Head 
-       1 His 
        2 Executive 
        6 Local 
        2 Regional 
        1 TransLink 
        1 Proserpine 
-       1 Isa 
        1 Bundaberg 
        1 Wellcamp 
        1 Toowoomba 
@@ -212,7 +195,6 @@
        1 Sugar 
        1 Abbot 
        1 Dalrymple 
-       1 Hay 
        1 Rail 
        1 Principal 
        1 Roads 
@@ -223,16 +205,13 @@
        1 Accommodation 
        1 Kumbartcho 
        1 Logan 
-       1 Gap 
        1 Forest 
        1 Pocket 
        1 Tree 
-       1 Fig 
        1 Pine 
        1 Lone 
        1 Irwin 
        1 Steve 
-       2 Zoo 
        1 Mooloolaba 
        1 UnderWater 
        1 Fleay 
@@ -282,23 +261,10 @@
        2 Christians 
        1 Religious 
        2 Western 
-       3 For 
-       1 Age 
       23 Bureau 
        2 Source 
        2 Record 
        1 Year 
-       1 Dec 
-       1 Nov 
-       1 Oct 
-       2 Sep 
-       1 Aug 
-       1 Jul 
-       1 Jun 
-       1 Apr 
-       1 Mar 
-       1 Feb 
-       1 Jan 
        1 Month 
        1 Temperatures 
       20 July 
@@ -316,25 +282,20 @@
        1 Rainfall 
        2 City 
        2 Snow 
-       6 It 
        1 Bellenden 
        3 Stanthorpe 
        1 Goondiwindi 
        1 Longreach 
-       1 Mt 
        4 Rockhampton 
        3 Mackay 
        2 Severe 
        1 Droughts 
        1 Flooding 
-       1 Ita 
        1 Natural 
        1 Elevated 
-       1 Low 
        1 Because 
        1 Sandy 
        1 Tropics 
-       3 Wet 
        6 Park 
        1 Lamington 
        1 Rainforests 
@@ -365,7 +326,6 @@
        1 Like 
        5 East 
        1 Most 
-       1 If 
        2 Anna 
        1 Hawaii 
        6 Parliament 
@@ -394,7 +354,6 @@
        6 December 
        1 Colony 
        1 Native 
-       3 One 
        1 Nogoa 
        1 Dawson 
        2 Bank 
@@ -402,24 +361,19 @@
        4 Fraser 
        2 Aboriginals 
       15 October 
-       7 On 
        3 Police 
        1 Casualties 
        1 Melanesian 
        1 About 
-       7 War 
        1 Aborigines 
        1 Bulla 
        1 Burke 
        1 Fighting 
        2 Frontier 
-       3 Bay 
        1 Maryborough 
        5 River 
        1 Lockyer 
        1 Edmund 
-       2 He 
-       3 At 
        3 Moreton 
        9 Port 
        2 Gladstone 
@@ -454,7 +408,6 @@
        2 French 
        2 Spanish 
       14 January 
-       2 Day 
        2 Patent 
        3 Letters 
        6 Queen 
@@ -468,7 +421,6 @@
        5 Cook 
        5 James 
        3 Lieutenant 
-      23 In 
        1 Peninsula 
        2 York 
        4 Cape 
@@ -481,15 +433,11 @@
       11 Aboriginal 
        3 Tourism 
        1 Often 
-      13 May 
-       3 As 
        2 Guinea 
        1 Papua 
        4 Torres 
        7 Pacific 
-       2 Sea 
        2 Coral 
-       5 To 
        2 Northern 
        1 Situated 
        2 Commonwealth 
@@ -527,12 +475,10 @@
        1 Total 
        1 Area 
       16 March 
-       8 Act 
        1 Statehood 
       20 June 
        5 Wales 
       26 South 
-      17 New 
        1 Separation 
        2 Palaszczuk 
        2 Annastacia 
@@ -551,14 +497,12 @@
       43 Australian 
        6 Other 
       20 Australia 
-       1 Map 
        1 Perfect 
        1 Beautiful 
        1 Fidelis 
        1 Audax 
       11 State 
        8 Sunshine 
-      76 The 
        1 Slogan 
        2 Coat 
        2 Flag 
