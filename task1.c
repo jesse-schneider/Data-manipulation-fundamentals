@@ -51,7 +51,6 @@ void printList(FILE *outfile)
     while(nextNode != NULL)
     {
         fprintf(outfile, " %7i %s \n", nextNode->count, nextNode->word);
-        printf(" %7i %s \n", nextNode->count, nextNode->word);
         nextNode = nextNode->next;
     }
 }
@@ -86,7 +85,6 @@ int validWord(char name[], int len)
                 valid = 0;
             }
         }
-
         return valid;
 }
 
@@ -118,8 +116,8 @@ int main()
     char name[SIZE];
     int count = 0;
 
-   inputfile = fopen("C:\\Users\\Jesse\\CLionProjects\\Prog-fund\\queensland.txt", "r");
-   outfile = fopen("C:\\Users\\Jesse\\CLionProjects\\Prog-fund\\queensland.histogram.txt", "w");
+   inputfile = fopen("/home/jesse/Documents/Progfund-Assignment/australia.txt", "r");
+   outfile = fopen("/home/jesse/Documents/Progfund-Assignment/australia.histogram.txt", "w");
 
     if (inputfile == NULL)
     {
@@ -131,8 +129,6 @@ int main()
     {
 
         int len = strlen(name);
-        if (len < 4)
-            continue;
 
         int valid = validWord(name, len);
         int *valptr = NULL;
@@ -151,7 +147,7 @@ int main()
         }
     }
     printList(outfile);
-    printf("Number of unique words found: %d", count);
+    printf("Number of unique words found: %d \n", count);
     fclose(inputfile);
     fclose(outfile);
     return 0;
