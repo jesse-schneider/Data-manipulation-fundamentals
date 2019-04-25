@@ -9,5 +9,6 @@
 #define PROG_FUND_HELPERS_H
 
 int longestWord(FILE *inputfile);
+int validWord(char name[], int len);
 
 #endif //PROG_FUND_HELPERS_H

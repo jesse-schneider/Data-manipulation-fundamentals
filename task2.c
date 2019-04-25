@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "helpers.h"
-#define SIZE 50
+#define SIZE 10
 
 int main()
 {
@@ -23,22 +23,107 @@ int main()
 //    char ch;
 //    int counter = 0;
     
-    
-    
     int correlation [SIZE][SIZE];
+    
+    char listofWords[SIZE][SIZE];
+    char spacer [9] = "        ";
+    
+    int temparray[SIZE];
+    int tempIndex = 0;
+    
+    strcpy(listofWords[0], "Test");
+    strcpy(listofWords[1], "Jesse");
+    strcpy(listofWords[2], "Samuel");
+    strcpy(listofWords[3], "Danos");
+    strcpy(listofWords[4], "Cook");
+    strcpy(listofWords[5], "Freedcamp");
+    strcpy(listofWords[6], "Github");
+    strcpy(listofWords[7], "Gitlab");
+    strcpy(listofWords[8], "Griffith");
+    strcpy(listofWords[9], "CQUni");
+    
+    char sentence[] = "This is a Test sentence Jesse Github Cook.";
     
     for(int i = 0; i < SIZE; i++)
     {
         for(int j = 0; j < SIZE; j++)
         {
             correlation[i][j] = 0;
-            printf("%i", correlation[i][j]);
         }
     }
     
+    int size = strlen(sentence);
+    char delimiter[] = " ";
     
+    char *ptr = strtok(sentence, delimiter);
     
-    
+    //break sentence string into words
+    while(ptr != NULL)
+    {
+        char word[SIZE];
+        strcpy(word, ptr);
+        int len = strlen(word);
+        
+        if(word[len-1] == '.')
+        {
+            word[len-1] = '\0';
+        }
+        
+        int valid = validWord(word, len);
+        
+        //navigate through sentence word by word, check for word in list of words
+        for(int i = 0; i < SIZE; i++)
+        {
+            int compare = strcmp(word,listofWords[i]);
+            if (compare == 0)
+            {
+                temparray[tempIndex] = i;
+                temparray[tempIndex + 1] = '\0';
+                tempIndex++;
+            }
+        }
+        ptr = strtok(NULL, delimiter);
+    }
+        
+        //navigate to coordinates of correlation matrix, increment value
+        for (int i = 0; i < tempIndex; i++)
+        {
+            for(int j = i+1; j < tempIndex; j++)
+            {
+                correlation[temparray[i]][temparray[j]]++;
+                correlation[temparray[j]][temparray[i]]++;
+            }
+        }
+        printf("%*s", 8, spacer);
+        
+        //print top row of words 
+        for (int i = 0; i < SIZE; i++)
+        {
+            char *ptr = NULL;
+            ptr = (char *) malloc((sizeof(char) * 7));
+            ptr = listofWords[i];
+            ptr[7] = '\0';
+            printf("%-*s ", 7, listofWords[i]);
+        }
+        free(ptr);
+        printf("\n");
+        
+        //print word first, followed by correlation matrix
+       for(int i = 0; i < SIZE; i++)
+       {
+            char *ptr = NULL;
+            ptr = (char *) malloc((sizeof(char) * 7));
+            ptr = listofWords[i];
+            ptr[7] = '\0';
+            printf("%*s ", 7, ptr);
+            
+            for(int j = 0; j < SIZE; j++)
+            {
+                printf("%-*i ", 7, correlation[i][j]);
+            }
+            printf("\n");
+        }
+        free(ptr);
     
     
     //fclose(inputfile);
@@ -55,5 +140,5 @@ int main()
  * 4. Iterate 2D loop through each index, ignoring what is on the left of it
  * 5. Add 1 to value in 2D array at each other index in temp array, 2D array [i][j] and [j][i] i = word1Tempindex, j = word2Tempindex
  * 6. Repeat until EOF
- * 
- * /
+ * */
+
