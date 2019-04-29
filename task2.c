@@ -4,6 +4,43 @@
 #include "helpers.h"
 #define SIZE 10
 
+
+void printMatrix(int correlation[][SIZE], char wordList[][SIZE])
+{
+    char spacer [9] = "        ";
+    printf("%*s", 8, spacer);
+
+    //print top row of words
+    for (int i = 0; i < SIZE; i++)
+    {
+        char *ptr = NULL;
+        ptr = (char *) malloc((sizeof(char) * 7));
+        ptr = &wordList[i];
+        ptr[7] = '\0';
+        printf("%-*s ", 7, ptr);
+    }
+    printf("\n");
+
+
+    //print word first, followed by correlation matrix
+    for(int i = 0; i < SIZE; i++)
+    {
+        char *ptr = NULL;
+        ptr = (char *) malloc((sizeof(char) * 7));
+        ptr = &wordList[i];
+        ptr[7] = '\0';
+        printf("%*s ", 7, ptr);
+
+        for(int j = 0; j < SIZE; j++)
+        {
+            printf("%-*i ", 7, correlation[i][j]);
+        }
+        printf("\n");
+        //free(ptr);
+    }
+
+}
+
 int main()
 {
 //    FILE *inputfile = NULL;
@@ -26,7 +63,6 @@ int main()
     int correlation [SIZE][SIZE];
     
     char listofWords[SIZE][SIZE];
-    char spacer [9] = "        ";
     
     int temparray[SIZE];
     int tempIndex = 0;
@@ -42,7 +78,7 @@ int main()
     strcpy(listofWords[8], "Griffith");
     strcpy(listofWords[9], "CQUni");
     
-    char sentence[] = "This is a Test sentence Jesse Github Cook.";
+    char sentence[] = "This is a Test sentence Jesse Github Cook CQUni.";
     
     for(int i = 0; i < SIZE; i++)
     {
@@ -94,36 +130,10 @@ int main()
                 correlation[temparray[j]][temparray[i]]++;
             }
         }
-        printf("%*s", 8, spacer);
-        
-        //print top row of words 
-        for (int i = 0; i < SIZE; i++)
-        {
-            char *ptr = NULL;
-            ptr = (char *) malloc((sizeof(char) * 7));
-            ptr = listofWords[i];
-            ptr[7] = '\0';
-            printf("%-*s ", 7, listofWords[i]);
-        }
-        free(ptr);
-        printf("\n");
-        
-        //print word first, followed by correlation matrix
-       for(int i = 0; i < SIZE; i++)
-       {
-            char *ptr = NULL;
-            ptr = (char *) malloc((sizeof(char) * 7));
-            ptr = listofWords[i];
-            ptr[7] = '\0';
-            printf("%*s ", 7, ptr);
-            
-            for(int j = 0; j < SIZE; j++)
-            {
-                printf("%-*i ", 7, correlation[i][j]);
-            }
-            printf("\n");
-        }
-        free(ptr);
+
+        printMatrix(correlation, listofWords);
+
+
     
     
     //fclose(inputfile);
@@ -141,4 +151,5 @@ int main()
  * 5. Add 1 to value in 2D array at each other index in temp array, 2D array [i][j] and [j][i] i = word1Tempindex, j = word2Tempindex
  * 6. Repeat until EOF
  * */
+
 

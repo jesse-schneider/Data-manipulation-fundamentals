@@ -3,8 +3,7 @@
 
 CMakeFiles/Prog_fund.dir/helpers.c.obj: ../helpers.c
 
-CMakeFiles/Prog_fund.dir/main.c.obj: ../helpers.h
-CMakeFiles/Prog_fund.dir/main.c.obj: ../main.c
 
+CMakeFiles/Prog_fund.dir/task2.c.obj: ../helpers.h
 CMakeFiles/Prog_fund.dir/task2.c.obj: ../task2.c
 

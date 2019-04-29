@@ -7,8 +7,14 @@
 #IncludeRegexTransform: 
 
 C:/Users/Jesse/CLionProjects/Prog-fund/helpers.h
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
 
-C:/Users/Jesse/CLionProjects/Prog-fund/main.c
+C:/Users/Jesse/CLionProjects/Prog-fund/task2.c
 stdio.h
 -
 string.h
