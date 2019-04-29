@@ -1,0 +1,11 @@
+        Test    Jesse   Samuel  Danos   Cook    Freedca Github  Gitlab  Griffit CQUni   
+   Test 0       1       0       0       1       0       1       0       0       1       
+  Jesse 1       0       0       0       1       0       1       0       0       1       
+ Samuel 0       0       0       0       0       0       0       0       0       0       
+  Danos 0       0       0       0       0       0       0       0       0       0       
+   Cook 1       1       0       0       0       0       1       0       0       1       
+Freedca 0       0       0       0       0       0       0       0       0       0       
+ Github 1       1       0       0       1       0       0       0       0       1       
+ Gitlab 0       0       0       0       0       0       0       0       0       0       
+Griffit 0       0       0       0       0       0       0       0       0       0       
+  CQUni 1       1       0       0       1       0       1       0       0       0       

@@ -5,20 +5,23 @@
 #define SIZE 10
 
 
-void printMatrix(int correlation[][SIZE], char wordList[][SIZE])
+void printMatrix(int correlation[][SIZE], char wordList[][SIZE], FILE *outfile)
 {
     char spacer [9] = "        ";
     printf("%*s", 8, spacer);
+    fprintf(outfile, "%*s", 8, spacer);
 
     //print top row of words
     for (int i = 0; i < SIZE; i++)
     {
         char *ptr = NULL;
         ptr = (char *) malloc((sizeof(char) * 7));
-        ptr = &wordList[i];
+        ptr = wordList[i];
         ptr[7] = '\0';
+        fprintf(outfile, "%-*s ", 7, ptr);
         printf("%-*s ", 7, ptr);
     }
+    fprintf(outfile, "\n");
     printf("\n");
 
 
@@ -27,14 +30,17 @@ void printMatrix(int correlation[][SIZE], char wordList[][SIZE])
     {
         char *ptr = NULL;
         ptr = (char *) malloc((sizeof(char) * 7));
-        ptr = &wordList[i];
+        ptr = wordList[i];
         ptr[7] = '\0';
+        fprintf(outfile, "%*s ", 7, ptr);
         printf("%*s ", 7, ptr);
 
         for(int j = 0; j < SIZE; j++)
         {
+            fprintf(outfile, "%-*i ", 7, correlation[i][j]);
             printf("%-*i ", 7, correlation[i][j]);
         }
+        fprintf(outfile, "\n");
         printf("\n");
         //free(ptr);
     }
@@ -44,13 +50,13 @@ void printMatrix(int correlation[][SIZE], char wordList[][SIZE])
 int main()
 {
 //    FILE *inputfile = NULL;
-//    FILE *outfile = NULL;
+    FILE *outfile = NULL;
 //    char sentence[SIZE];
 //    int count = 0;
 //    char sentences[SIZE];
 //
 //    inputfile = fopen("/home/jesse/Documents/Progfund-Assignment/wombat.txt", "r");
-//    //outfile = fopen("/home/jesse/Documents/Progfund-Assignment/wombat.histogram.txt", "w");
+    outfile = fopen("/home/jesse/Documents/Progfund-Assignment/testdata.histogram.txt", "w");
 //
 //    if (inputfile == NULL)
 //    {
@@ -131,13 +137,13 @@ int main()
             }
         }
 
-        printMatrix(correlation, listofWords);
+        printMatrix(correlation, listofWords, outfile);
 
 
     
     
     //fclose(inputfile);
-    //fclose(outfile);
+    fclose(outfile);
     return 0;
 }
 
