@@ -4,7 +4,6 @@
 #include "helpers.h"
 #define SIZE 10
 
-
 int main()
 {
     int correlation [SIZE][SIZE];
@@ -13,24 +12,20 @@ int main()
     FILE *infile = NULL;
     FILE *outfile = NULL;
     char EOL = '\n';
+    char delimiter[] = " ";
+    int lineChars = 0;
+    int tempIndex = 0;
+    char c;
 
-    //char *line = (char*) malloc(2 * sizeof(char));
-
-    infile = fopen("C:\\Users\\Jesse\\CLionProjects\\Prog-fund\\testdata.histogram.txt", "r");
+    infile = fopen("/home/jesse/Documents/Progfund-Assignment/testdata.histogram.txt", "r");
+    //infile = fopen("/home/jesse/Documents/Progfund-Assignment/testdata.histogram.txt", "r");    //linux input
    // outfile = fopen("/home/jesse/Documents/Progfund-Assignment/testdata.histogram.txt", "w");
+   // outfile = fopen("/home/jesse/Documents/Progfund-Assignment/testdata.histogram.txt", "w");   //linux output
 
    if(infile == NULL)
    {
        printf("error opening file");
    }
-
-    char delimiter[] = " ";
-
-    int lineChars = 0;
-    int temparray[SIZE];
-    int tempIndex = 0;
-
-    char c;
 
     while(c = fgetc(infile) != EOL)
     {
@@ -41,8 +36,6 @@ int main()
     fseek(infile, 0, SEEK_SET);
     fgets(line, lineChars, infile);
 
-    printf("%s", line);
-
     char *ptr = strtok(line, delimiter);
 
     //break sentence string into words
@@ -52,23 +45,21 @@ int main()
         strcpy(word, ptr);
         int len = strlen(word);
 
-        if(word[len-1] == '.')
+        //iterate through chars in word, add to list of words at tempIndex
+        for(int j = 0; j < len + 1; j++)
         {
-            word[len-1] = '\0';
+          listofWords[tempIndex][j] = word[j];
         }
+        listofWords[tempIndex][len + 1] = '\0';
 
-        //navigate through sentence word by word, check for word in list of words
-        for(int i = 0; i < SIZE; i++)
-        {
-              temparray[tempIndex] = word;
-              temparray[tempIndex + 1] = '\0';
-              tempIndex++;
-            }
-        }
-        ptr = strtok(NULL, delimiter);
-    }
+        tempIndex++;
 
-    printf("%s", temparray);
+          ptr = strtok(NULL, delimiter);
+         }
 
-
+          for(int i = 0; i < SIZE; i++)
+          {
+            printf("[%s] \n", listofWords[i]);
+          }
+      fclose(infile);
 }
