@@ -14,6 +14,7 @@ int main()
     char EOL = '\n';
     char delimiter[] = " ";
     int lineChars = 0;
+    int wordCount = 0;
     int tempIndex = 0;
     char c;
 
