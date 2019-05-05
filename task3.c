@@ -21,7 +21,6 @@ int main()
     FILE *outfile = NULL;
     const char EOL = '\n';
     const char delimiter[] = " ";
-    char *strcat;
     int lineChars = 0;
     int wordCount = 0;
     int tempIndex = 0;
@@ -71,7 +70,32 @@ int main()
     }
 
     int correlation [wordCount][wordCount];
+
+    for(int i = 0; i < wordCount; i++)
+    {
+      for(int j = 0; j < wordCount+1; j++)
+      {
+        char scan[8];
+        if(fscanf(infile, "%s", &scan) != EOF)
+        {
+          if(j == 0)
+          continue;
+
+          int corint = atoi(scan);
+          correlation[i][j-1] = corint;
+        }
+      }
+    }
     fclose(infile);
+
+    for(int i = 0; i < wordCount; i++)
+    {
+      for(int j = 0; j < wordCount; j++)
+      {
+        printf("%i ", correlation[i][j]);
+      }
+      printf("\n");
+    }
 
     // for(int i = 0; i < wordCount; i++)
     // {
@@ -79,4 +103,13 @@ int main()
     // }
 
     char input[] = "CQUni";
+    int index = 0;
+
+    for(int k = 0; k < wordCount; k++)
+    {
+      if(strcmp(input, listofWords[k]) == 0)
+      {
+        index = k;
+      }
+    }
 }
