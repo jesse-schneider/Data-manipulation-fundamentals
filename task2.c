@@ -56,7 +56,8 @@ int main()
 //    char sentences[SIZE];
 //
 //    inputfile = fopen("/home/jesse/Documents/Progfund-Assignment/wombat.txt", "r");
-    outfile = fopen("/home/jesse/Documents/Progfund-Assignment/testdata.histogram.txt", "w");
+//    outfile = fopen("/home/jesse/Documents/Progfund-Assignment/testdata.correlation.txt", "w");     //linux
+    outfile = fopen("C:\\Users\\Jesse\\CLionProjects\\Prog-fund\\testdata.correlation.txt", "w");
 //
 //    if (inputfile == NULL)
 //    {
@@ -65,14 +66,14 @@ int main()
 //    }
 //    char ch;
 //    int counter = 0;
-    
+
     int correlation [SIZE][SIZE];
-    
+
     char listofWords[SIZE][SIZE];
-    
+
     int temparray[SIZE];
     int tempIndex = 0;
-    
+
     strcpy(listofWords[0], "Test");
     strcpy(listofWords[1], "Jesse");
     strcpy(listofWords[2], "Samuel");
@@ -83,9 +84,9 @@ int main()
     strcpy(listofWords[7], "Gitlab");
     strcpy(listofWords[8], "Griffith");
     strcpy(listofWords[9], "CQUni");
-    
+
     char sentence[] = "This is a Test sentence Jesse Github Cook CQUni.";
-    
+
     for(int i = 0; i < SIZE; i++)
     {
         for(int j = 0; j < SIZE; j++)
@@ -93,26 +94,26 @@ int main()
             correlation[i][j] = 0;
         }
     }
-    
+
     int size = strlen(sentence);
     char delimiter[] = " ";
-    
+
     char *ptr = strtok(sentence, delimiter);
-    
+
     //break sentence string into words
     while(ptr != NULL)
     {
         char word[SIZE];
         strcpy(word, ptr);
         int len = strlen(word);
-        
+
         if(word[len-1] == '.')
         {
             word[len-1] = '\0';
         }
-        
+
         int valid = validWord(word, len);
-        
+
         //navigate through sentence word by word, check for word in list of words
         for(int i = 0; i < SIZE; i++)
         {
@@ -126,7 +127,7 @@ int main()
         }
         ptr = strtok(NULL, delimiter);
     }
-        
+
         //navigate to coordinates of correlation matrix, increment value
         for (int i = 0; i < tempIndex; i++)
         {
@@ -140,8 +141,8 @@ int main()
         printMatrix(correlation, listofWords, outfile);
 
 
-    
-    
+
+
     //fclose(inputfile);
     fclose(outfile);
     return 0;
@@ -149,13 +150,11 @@ int main()
 
 
 /*
- * 
+ *
  * 1. Create 2D array with len = Listofwords, initiate all [i][j] as 0
  * 2. Read in a sentence word by word until '.', compare word to listofwords, if yes, add word index to temp array
- * 3. (output only) Print List of words as first array 
+ * 3. (output only) Print List of words as first array
  * 4. Iterate 2D loop through each index, ignoring what is on the left of it
  * 5. Add 1 to value in 2D array at each other index in temp array, 2D array [i][j] and [j][i] i = word1Tempindex, j = word2Tempindex
  * 6. Repeat until EOF
  * */
-
-
