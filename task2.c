@@ -59,11 +59,8 @@ int main()
 //    outfile = fopen("/home/jesse/Documents/Progfund-Assignment/testdata.correlation.txt", "w");     //linux
     outfile = fopen("C:\\Users\\Jesse\\CLionProjects\\Prog-fund\\testdata.correlation.txt", "w");
 //
-//    if (inputfile == NULL)
-//    {
-//        printf("Error opening file. \n");
-//        return 1;
-//    }
+//    checkInfile(infile);
+
 //    char ch;
 //    int counter = 0;
 

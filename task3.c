@@ -3,22 +3,9 @@
 #include <stdlib.h>
 #include "helpers.h"
 
-int skipSpaces(int i, char *str)
-{
-  if (str[i+1] != ' ')
-  {
-    return i+1;
-  }
-  else
-  {
-    skipSpaces(i+1, str);
-  }
-}
-
 int main()
 {
     FILE *infile = NULL;
-    FILE *outfile = NULL;
     const char EOL = '\n';
     const char delimiter[] = " ";
     int lineChars = 0;
@@ -26,15 +13,9 @@ int main()
     int tempIndex = 0;
     char c;
 
-    infile = fopen("C:\\Users\\Jesse\\CLionProjects\\Prog-fund\\testdata.correlation.txt", "r"); //windows input
-    //infile = fopen("/home/jesse/Documents/Progfund-Assignment/testdata.histogram.txt", "r");    //linux input
-   // outfile = fopen("/home/jesse/Documents/Progfund-Assignment/testdata.histogram.txt", "w");
-   // outfile = fopen("/home/jesse/Documents/Progfund-Assignment/testdata.histogram.txt", "w");   //linux output
+    infile = fopen("testdata.correlation.txt", "r"); //windows input
 
-   if(infile == NULL)
-   {
-       printf("error opening file");
-   }
+   checkInfile(infile);
 
     while(c = getc(infile) != EOL)
     {
@@ -88,14 +69,14 @@ int main()
     }
     fclose(infile);
 
-    for(int i = 0; i < wordCount; i++)
-    {
-      for(int j = 0; j < wordCount; j++)
-      {
-        printf("%i ", correlation[i][j]);
-      }
-      printf("\n");
-    }
+    // for(int i = 0; i < wordCount; i++)
+    // {
+    //   for(int j = 0; j < wordCount; j++)
+    //   {
+    //     printf("%i ", correlation[i][j]);
+    //   }
+    //   printf("\n");
+    // }
 
     // for(int i = 0; i < wordCount; i++)
     // {
@@ -103,6 +84,8 @@ int main()
     // }
 
     char input[] = "CQUni";
+    int topTen[wordCount];
+    int topTenIndex[wordCount];
     int index = 0;
 
     for(int k = 0; k < wordCount; k++)
@@ -112,4 +95,21 @@ int main()
         index = k;
       }
     }
+
+    //store correlation matrix row to compare, and it's indexs
+    for(int i = 0; i < wordCount; i++)
+    {
+      topTen[i] = correlation[index][i];
+      topTenIndex[i] = i;
+    }
+
+    sortforWord(topTen, topTenIndex, wordCount);
+
+    //display top ten words and the number of occurences
+    for(int i = 0; i < wordCount; i++)
+    {
+      printf("%i ", topTen[i]);
+      printf("%s\n", listofWords[topTenIndex[i]]);
+    }
+
 }
