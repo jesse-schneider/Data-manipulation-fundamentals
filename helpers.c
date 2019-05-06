@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#define SIZE 500
 
 int longestWord(FILE *inputfile)
 {
-    char word[SIZE];
+    char *word = malloc(500 * sizeof(char));
     int largeLen = 0;
 
     while(fscanf(inputfile, "%s", word) == 1)
@@ -16,8 +15,8 @@ int longestWord(FILE *inputfile)
         {
             largeLen = len;
         }
-
     }
+    free(word);
     return largeLen;
 }
 
@@ -115,13 +114,13 @@ void populateCorrelation(FILE *infile, int wordCount, int correlation[][wordCoun
   }
 }
 
-// int countArray(int temp[])
-// {
-//     int count = 0;
-//     for(int i = 0; i != '\0'; i++)
-//     {
-//         count++;
-//     }
-//
-//     return count;
-// }
+int half2DArray(int wordCount)
+{
+  int size = 0;
+  while(wordCount != 0)
+  {
+    size += wordCount;
+    wordCount--;
+  }
+  return size;
+}

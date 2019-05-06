@@ -7,6 +7,7 @@ int main()
 {
     //init file pointer, const variables and count variables
     FILE *infile = NULL;
+    FILE *histinfile = NULL;
     const char EOL = '\n';
     const char delimiter[] = " ";
     int lineChars = 0;
@@ -15,6 +16,8 @@ int main()
     char c;
 
     infile = fopen("testdata.correlation.txt", "r");
+    histinfile = fopen("", "r");
+
 
    checkInfile(infile);
 
@@ -63,35 +66,41 @@ int main()
 
     fclose(infile);
 
-    char input[] = "Github";
+    char input[] = "CQUni";
     int topTen[wordCount];
     int topTenIndex[wordCount];
     int index = 0;
+    int found = 0;
 
     for(int k = 0; k < wordCount; k++)
     {
       if(strcmp(input, listofWords[k]) == 0)
       {
         index = k;
-
-        //store correlation matrix row to compare, and it's indexs
-        for(int i = 0; i < wordCount; i++)
-        {
-          topTen[i] = correlation[index][i];
-          topTenIndex[i] = i;
-        }
-
-        sortforWord(topTen, topTenIndex, wordCount);
-
-        //display top ten words and the number of occurences
-        for(int i = 0; i < 10; i++)
-        {
-          printf("%i ", topTen[i]);
-          printf("%s\n", listofWords[topTenIndex[i]]);
-        }
+        found = 1;
+        break;
       }
     }
 
+    if (found == 1)
+    {
+      //store correlation matrix row to compare, and it's indexs
+      for(int i = 0; i < wordCount; i++)
+      {
+        topTen[i] = correlation[index][i];
+        topTenIndex[i] = i;
+      }
 
+      sortforWord(topTen, topTenIndex, wordCount);
 
+      //display top ten words and the number of occurences
+      for(int i = 0; i < 10; i++)
+      {
+        printf("%i ", topTen[i]);
+        printf("%s\n", listofWords[topTenIndex[i]]);
+      }
+    }
+    else {
+      printf("word not in correlation matrix\n");
+    }
 }

@@ -1,6 +1,3 @@
-//
-// Created by Jesse on 24/04/2019.
-//
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -14,5 +11,6 @@ int skipSpaces(int i, char *str);
 void checkInfile(FILE *infile);
 void sortforWord(int topTen[], int topTenIndex[], int wordCount);
 void populateCorrelation(FILE *infile, int wordCount, int correlation[][wordCount]);
+int half2DArray(int wordCount);
 
 #endif //PROG_FUND_HELPERS_H
