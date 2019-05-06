@@ -55,8 +55,6 @@ void printList(FILE *outfile)
     }
 }
 
-
-
 int checkForDuplicates(char word[])
 {
     struct Node *nextNode = head;
@@ -85,8 +83,8 @@ int main()
     char name[SIZE];
     int count = 0;
 
-   inputfile = fopen("/home/jesse/Documents/Progfund-Assignment/australia.txt", "r");
-   outfile = fopen("/home/jesse/Documents/Progfund-Assignment/australia.histogram.txt", "w");
+   inputfile = fopen("australia.txt", "r");
+   outfile = fopen("australia.histogram.txt", "w");
 
     if (inputfile == NULL)
     {
@@ -96,7 +94,6 @@ int main()
 
     while (fscanf(inputfile, "%s", name) == 1)
     {
-
         int len = strlen(name);
 
         int valid = validWord(name, len);
@@ -121,4 +118,3 @@ int main()
     fclose(outfile);
     return 0;
 }
-

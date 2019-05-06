@@ -96,6 +96,25 @@ void sortforWord(int topTen[], int topTenIndex[], int wordCount)
   }
 }
 
+void populateCorrelation(FILE *infile, int wordCount, int correlation[][wordCount])
+{
+  for(int i = 0; i < wordCount; i++)
+  {
+    for(int j = 0; j < wordCount+1; j++)
+    {
+      char scan[8];
+      if(fscanf(infile, "%s", &scan) != EOF)
+      {
+        if(j == 0)
+        continue;
+
+        int corint = atoi(scan);
+        correlation[i][j-1] = corint;
+      }
+    }
+  }
+}
+
 // int countArray(int temp[])
 // {
 //     int count = 0;

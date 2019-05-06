@@ -24,7 +24,6 @@ void printMatrix(int correlation[][SIZE], char wordList[][SIZE], FILE *outfile)
     fprintf(outfile, "\n");
     printf("\n");
 
-
     //print word first, followed by correlation matrix
     for(int i = 0; i < SIZE; i++)
     {
@@ -44,7 +43,6 @@ void printMatrix(int correlation[][SIZE], char wordList[][SIZE], FILE *outfile)
         printf("\n");
         //free(ptr);
     }
-
 }
 
 int main()
@@ -55,9 +53,8 @@ int main()
 //    int count = 0;
 //    char sentences[SIZE];
 //
-//    inputfile = fopen("/home/jesse/Documents/Progfund-Assignment/wombat.txt", "r");
-//    outfile = fopen("/home/jesse/Documents/Progfund-Assignment/testdata.correlation.txt", "w");     //linux
-    outfile = fopen("C:\\Users\\Jesse\\CLionProjects\\Prog-fund\\testdata.correlation.txt", "w");
+//    inputfile = fopen("wombat.txt", "r");
+    outfile = fopen("testdata.correlation.txt", "w");
 //
 //    checkInfile(infile);
 
@@ -136,9 +133,6 @@ int main()
         }
 
         printMatrix(correlation, listofWords, outfile);
-
-
-
 
     //fclose(inputfile);
     fclose(outfile);

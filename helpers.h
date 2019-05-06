@@ -13,5 +13,6 @@ int validWord(char name[], int len);
 int skipSpaces(int i, char *str);
 void checkInfile(FILE *infile);
 void sortforWord(int topTen[], int topTenIndex[], int wordCount);
+void populateCorrelation(FILE *infile, int wordCount, int correlation[][wordCount]);
 
 #endif //PROG_FUND_HELPERS_H
