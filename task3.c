@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "helpers.h"
+#include "linkedList.h"
 
 int main()
 {
@@ -16,8 +17,7 @@ int main()
     char c;
 
     inputfile = fopen("testdata.correlation.txt", "r");
-    histinfile = fopen("", "r");
-
+    histinfile = fopen("australia.histogram.txt", "r");
 
    checkInfile(inputfile);
 
@@ -66,7 +66,7 @@ int main()
 
     fclose(inputfile);
 
-    char input[] = "CQUni";
+    char input[] = "CQUnit";
     int topTen[wordCount];
     int topTenIndex[wordCount];
     int index = 0;
@@ -102,5 +102,42 @@ int main()
     }
     else {
       printf("word not in correlation matrix\n");
+
+      checkInfile(histinfile);
+
+      int size = longestWord(histinfile);
+      fseek(histinfile, 0, SEEK_SET);
+      char *word = NULL;
+      int occurence = 0;
+      word = malloc(size * sizeof(char));
+
+      while(fscanf(histinfile, "%i %s", &occurence, word) != EOF)
+      {
+        NODE *addToList = createNode(word, occurence, size);
+        insertAtHead(addToList);
+      }
+
+      int popTopTen[2500];
+      int popTopTenIndex[2500];
+      addToArray(popTopTen, popTopTenIndex);
+
+      for(int i = 0; i < wordCount; i++)
+      {
+        printf("%i %i \n", popTopTen[i], popTopTenIndex[i]);
+      }
+
+      //outputList();
+      //
+      //read in linked list from file and store
+      //traverse list, place all occurences in an array, store index value in another array
+      //selection sort top 10 occurences, parallel sort indexes
     }
+    fclose(inputfile);
+    fclose(histinfile);
 }
+
+/**
+- finish task2 input and output some usable data for task3
+- finish task3
+
+*/

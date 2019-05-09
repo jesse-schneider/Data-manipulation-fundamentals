@@ -11,8 +11,8 @@ int main()
     FILE *outfile = NULL;
     int count = 0;
 
-   inputfile = fopen("australia.txt", "r");
-   outfile = fopen("australia.histogram.txt", "w");
+   inputfile = fopen("united_states.txt", "r");
+   outfile = fopen("united_states.histogram.txt", "w");
 
    int size = longestWord(inputfile);
    fseek(inputfile, 0, SEEK_SET);
@@ -39,7 +39,7 @@ int main()
 
         if (valid == 0)
         {
-            NODE *addToList = createNode(name, size);
+            NODE *addToList = createNode(name, 1, size);
             insertAtHead(addToList);
             count++;
         }

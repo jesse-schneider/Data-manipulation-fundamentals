@@ -5,7 +5,7 @@
 
 NODE *head = NULL;
 
-NODE * createNode(char wordIn[], int size)
+NODE * createNode(char wordIn[], int countInit, int size)
 {
     NODE *newNode = (NODE*) malloc(sizeof(NODE));
     if (newNode == NULL)
@@ -16,7 +16,7 @@ NODE * createNode(char wordIn[], int size)
     {
       newNode->word = malloc(size * sizeof(char));
         strncpy(newNode->word, wordIn, size);
-        newNode->count = 1;
+        newNode->count = countInit;
         newNode->next = NULL;
     }
     return newNode;
@@ -48,6 +48,17 @@ void printList(FILE *outfile)
     }
 }
 
+void outputList()
+{
+    NODE *nextNode = head;
+
+    while(nextNode != NULL)
+    {
+        printf(" %7i %s \n", nextNode->count, nextNode->word);
+        nextNode = nextNode->next;
+    }
+}
+
 int checkForDuplicates(char word[])
 {
     NODE *nextNode = head;
@@ -67,4 +78,20 @@ int checkForDuplicates(char word[])
         nextNode = nextNode->next;
     }
     return 0;
+}
+
+void addToArray(int popTopTen[], int popTopTenIndex[])
+{
+  NODE *nextNode = head;
+  int inx = 0;
+
+  while(nextNode != NULL)
+  {
+      popTopTen[inx] = nextNode->count;
+      popTopTenIndex[inx] = inx;
+      inx++;
+
+      nextNode = nextNode->next;
+  }
+
 }

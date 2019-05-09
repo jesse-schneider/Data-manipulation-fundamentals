@@ -82,6 +82,7 @@
        1 Mind 
        1 Curious 
        1 Desk 
+       1 Ice 
        1 Colonizing 
        1 Peoples 
        1 Puritan 
@@ -92,6 +93,7 @@
        2 Marriage 
        1 Interracial 
        1 Arnold 
+       1 Odd 
        1 Melvyn 
        2 Reclaiming 
        1 Azusa 
@@ -127,6 +129,7 @@
        1 Deal 
        1 Ecological 
        1 Eternal 
+       1 Tim 
        1 Corridors 
        1 Alternate 
        1 Turn 
@@ -171,13 +174,16 @@
        3 Newspapers 
        1 Titan 
        2 Complete 
+       1 Les 
        1 Shaffer 
        1 Brenda 
        1 Especially 
        1 Stations 
        2 Radio 
+       2 Web 
        1 Spill 
        1 Fans 
+       1 Pie 
        1 Sochi 
        1 Captured 
        2 Harris 
@@ -201,6 +207,7 @@
        1 Landis 
        1 Nielsen 
        4 Hollywood 
+       1 Ben 
        1 Rolling 
        1 Imagine 
        1 Woman 
@@ -208,9 +215,11 @@
        1 Spears 
        1 Salinas 
        1 Disc 
+       1 Pop 
        1 Decades 
        1 Five 
        1 Julian 
+       1 Ken 
        1 Alma 
        2 Hall 
        1 Prentice 
@@ -222,6 +231,7 @@
        1 Parent 
        1 Linda 
        1 Capo 
+       1 Da 
        1 Meyers 
        1 Seed 
        1 Quinn 
@@ -239,8 +249,10 @@
        2 Transformation 
        1 Levenstein 
        2 Harvey 
+       2 Eat 
        1 Where 
        1 Mechling 
+       1 Jay 
        1 Angus 
        1 Beacon 
        1 Into 
@@ -256,6 +268,7 @@
        1 Setting 
        2 Interactive 
        1 Cornell 
+       1 Got 
        3 Class 
        1 Academic 
        1 Sussex 
@@ -266,6 +279,7 @@
        1 Elise 
        1 Dominican 
        1 Worldwide 
+       2 Jon 
        1 Charities 
        1 Challenges 
        1 Good 
@@ -310,6 +324,7 @@
        1 Kaid 
        1 Rutgers 
        1 Planning 
+       1 Jan 
        2 Rail 
        1 Speed 
        2 High 
@@ -325,6 +340,7 @@
        2 Road 
        1 Happiest 
        1 Reduction 
+       1 Any 
        1 Afford 
        1 Economies 
        1 Says 
@@ -349,7 +365,9 @@
        1 Might 
        1 Chart 
        1 Pissed 
+       1 Liz 
        1 Ignoring 
+       1 Add 
        1 Mean 
        3 Less 
        1 Ebonya 
@@ -357,12 +375,14 @@
        1 Affairs 
        2 Costs 
        1 Lindsay 
+       1 Era 
        1 Hayes 
        2 CiteSeerX 
        1 Unsustainable 
        1 Representation 
        1 Bartels 
        2 Evolution 
+       2 Not 
        2 Incomes 
        1 Shares 
        1 Fractiles 
@@ -387,6 +407,7 @@
        1 Explaining 
        1 Keith 
        1 Mgmt 
+       1 Div 
        1 Entrepreneurial 
        1 Roadmap 
        1 Winslow 
@@ -428,6 +449,7 @@
        2 Product 
        1 Extendible 
        2 Type 
+       3 Net 
        1 Employees 
        1 Around 
        1 Exchanges 
@@ -441,13 +463,17 @@
        1 Sneha 
        1 Whom 
        1 Owns 
+       2 Our 
        1 Holds 
        1 Holders 
+       2 Ten 
        2 Greyhill 
        2 Exchange 
        1 Composition 
        1 Mismeasure 
+       1 Lee 
        1 Lederman 
+       1 Nor 
        1 Curse 
        1 Neither 
        1 Past 
@@ -461,10 +487,12 @@
        2 Wendy 
        2 Princeton 
        1 Lockdown 
+       2 Joe 
        5 Natural 
        2 Myth 
        1 Illusion 
        1 Bernard 
+       1 Big 
        2 Punishment 
        1 Tale 
        1 Correctional 
@@ -587,6 +615,7 @@
        1 Effective 
        3 Average 
        1 Peterson 
+       1 Pay 
        1 Though 
        1 Piketty 
        1 Prasad 
@@ -596,6 +625,7 @@
        2 Isabelle 
        3 Emmanuel 
        1 Progressivity 
+       1 Be 
        1 Annie 
       10 Income 
        4 Household 
@@ -609,6 +639,8 @@
        1 Lorie 
        3 Commonwealth 
        1 Significant 
+       1 Had 
+       2 Has 
        1 Micronesian 
        1 Holen 
        1 Leslie 
@@ -621,6 +653,7 @@
        1 Emma 
        1 Bilateral 
        1 Fergusson 
+       2 Ian 
        2 Carl 
        1 Aspects 
        1 Axel 
@@ -652,6 +685,7 @@
        1 Asked 
        1 Apportionment 
        1 Determining 
+       2 Art 
        1 Nationality 
        1 Online 
        1 Ballot 
@@ -713,6 +747,7 @@
        1 Concept 
        2 Revisiting 
        1 Lynn 
+       2 Are 
        1 Underinsured 
        1 Steady 
        1 Uninsured 
@@ -779,7 +814,9 @@
        1 Quickly 
        1 Growing 
        1 Doubt 
+       2 Dan 
        1 Church 
+       2 Go 
        1 FactFinder 
        1 Glenn 
        1 Skorton 
@@ -792,6 +829,8 @@
        1 Yaron 
        1 Psychology 
        1 Australasia 
+       1 Far 
+       1 Eur 
        1 Bess 
        1 Beaty 
        1 Janice 
@@ -811,6 +850,7 @@
        1 Multilingual 
        1 Pluralist 
        2 Susan 
+       1 OKs 
        2 Section 
        1 Legislation 
        4 Background 
@@ -871,6 +911,7 @@
        1 Group 
        1 Ancestry 
        4 Trends 
+      13 Pew 
        3 Million 
        1 Brings 
        1 Wave 
@@ -887,6 +928,7 @@
        2 Totals 
        1 Promise 
        1 Morton 
+       2 Up 
        1 Cleaning 
        2 Samuel 
        1 Daynes 
@@ -894,6 +936,7 @@
        1 Forestry 
        1 Involving 
        1 Changes 
+       2 Use 
        2 Resources 
        3 Resource 
        1 Promote 
@@ -919,6 +962,8 @@
        4 Guide 
        1 Tracks 
        1 McDougall 
+       1 Len 
+       1 Sid 
        2 Climate 
        1 Explosive 
        2 Larry 
@@ -978,6 +1023,8 @@
        1 Multiracial 
        1 Television 
        2 Jones 
+       1 Dow 
+       1 Yet 
        1 Damian 
        2 Paper 
        2 Economics 
@@ -988,6 +1035,7 @@
        1 Encounter 
        1 Happen 
        1 Could 
+       5 Why 
        5 Crisis 
        9 Financial 
        1 Worst 
@@ -1000,12 +1048,16 @@
        1 Inconvenient 
        1 Afghan 
        1 Forward 
+       1 Way 
+       3 Key 
+       1 Rae 
        1 Shannon 
        2 Face 
        1 Oust 
        1 Turner 
        2 News 
        2 Critical 
+       6 Is 
        1 Video 
        1 Terror 
        1 Flashback 
@@ -1017,9 +1069,12 @@
        1 Thakur 
        1 Manab 
       10 Cengage 
+       4 Was 
+       5 Do 
        3 Clinton 
        1 Reginald 
        1 Unipolar 
+       6 End 
        1 Rebellion 
        4 Simon 
        1 Summit 
@@ -1070,6 +1125,7 @@
        1 Feminist 
        1 Chapman 
        1 Carrie 
+       2 Van 
        1 Jacqueline 
        1 Prohibition 
        3 Federation 
@@ -1105,6 +1161,7 @@
        1 Identity 
        1 Quest 
        7 Politics 
+       2 De 
        2 Page 
        7 Cambridge 
        1 Exploratory 
@@ -1144,6 +1201,7 @@
        1 Influences 
        1 Sing 
        1 Then 
+       1 Ann 
        3 Mary 
        1 Reputation 
        2 Issue 
@@ -1156,11 +1214,13 @@
        3 Random 
        6 Making 
        1 Reformers 
+       2 Ray 
        5 Gary 
        1 Fabian 
        8 Greenwood 
        2 Events 
        4 Documents 
+       1 Sue 
        2 Carol 
        1 Reprints 
        1 Meares 
@@ -1178,6 +1238,7 @@
        1 Interlink 
        1 Chambers 
        2 Through 
+       3 Man 
        2 Exploring 
        2 Search 
        6 Daniel 
@@ -1187,6 +1248,7 @@
        1 Monthly 
        2 Book 
        1 Courier 
+       2 Own 
        1 Selections 
        1 Told 
        1 Explorations 
@@ -1194,6 +1256,7 @@
        2 Theories 
        1 Anthropological 
        6 Introduction 
+      16 An 
        2 Visions 
        1 Moore 
        1 Jerry 
@@ -1204,6 +1267,7 @@
        1 Thicker 
        1 Meyer 
        1 Melissa 
+       6 How 
        1 Sahlins 
        1 Tabrah 
        2 Ruth 
@@ -1264,6 +1328,7 @@
        5 Society 
        1 Guess 
        2 Never 
+       3 You 
        1 Phrase 
        1 Coined 
        1 Mariam 
@@ -1273,6 +1338,7 @@
        1 Army 
        3 Reed 
        1 Mystery 
+       7 Who 
        2 Byron 
        1 Patent 
        1 Access 
@@ -1304,6 +1370,8 @@
        1 Palgrave 
        3 Studies 
        2 Against 
+       1 Or 
+       1 Us 
        1 Lacorne 
        1 Denis 
        1 Tony 
@@ -1334,6 +1402,7 @@
        1 Conservation 
        1 Environment 
        2 Insular 
+       4 And 
        1 Item 
        1 Committee 
        2 Document 
@@ -1365,11 +1434,14 @@
        3 Vital 
        2 Fertility 
        1 Nuaa 
+       3 Two 
        1 Marines 
        1 Hawaiians 
        3 Discovery 
        1 Resolution 
+       4 His 
        1 Banks 
+       1 Sir 
        2 Factbook 
        4 Britannica 
        1 Wake 
@@ -1393,6 +1465,7 @@
        1 References 
        1 Outline 
        2 Lists 
+       4 See 
        6 Early 
        1 Voice 
        2 Village 
@@ -1404,6 +1477,7 @@
       61 February 
       21 Public 
        1 Cable 
+       3 Fox 
        3 Company 
        5 Broadcasting 
        1 Rugby 
@@ -1416,6 +1490,7 @@
        1 Africa 
        1 Canadian 
        1 Soccer 
+       1 Cup 
        1 Cups 
        1 Hockey 
        2 Basketball 
@@ -1438,6 +1513,7 @@
        2 List 
        1 Waterfront 
        2 Graduate 
+       1 Oz 
        1 Wizard 
        2 Arabia 
        7 Lawrence 
@@ -1460,6 +1536,7 @@
        1 Monroe 
        1 Marilyn 
        2 Wayne 
+       4 Age 
        1 Directors 
        1 Disney 
        1 Director 
@@ -1512,6 +1589,7 @@
        2 Lloyd 
        3 Frank 
        1 Lichtenstein 
+       2 Roy 
        1 Warhol 
        1 Andy 
        1 Kooning 
@@ -1543,6 +1621,7 @@
        8 Charles 
        1 Waldo 
        1 Ralph 
+       1 Don 
        1 Generation 
        1 Beat 
        3 Popular 
@@ -1551,6 +1630,7 @@
        1 Ernest 
       12 William 
        4 Dylan 
+       2 Bob 
        1 Twelve 
        1 Mockingbird 
        1 Kill 
@@ -1596,13 +1676,16 @@
        5 Transportation 
        1 Infrastructure 
        1 Assets 
+       9 Top 
        1 Bottom 
        5 Survey 
+       1 Fed 
       13 Human 
        1 Programme 
       13 Development 
        3 Accounting 
        1 Microsystems 
+       1 Sun 
        3 Apple 
        1 Adobe 
        1 Intel 
@@ -1645,29 +1728,34 @@
        5 Economy 
        4 Oklahoma 
        1 Pakistan 
+       4 No 
        1 Reports 
        8 Crime 
        1 Uniform 
        2 Hampshire 
        1 Regarding 
+       2 Gun 
        1 Database 
        1 Mortality 
        1 Plea 
        1 Marshals 
        1 Investigation 
        2 Police 
+       7 Law 
       30 November 
        7 Service 
        3 Selective 
        1 Reserves 
        2 Homeland 
        2 Guard 
+       5 Air 
        2 Marine 
        1 Chiefs 
        3 Secretary 
        7 Military 
        1 Medicaid 
        7 Major 
+      17 Tax 
       15 Office 
       15 Budget 
        3 Payroll 
@@ -1709,6 +1797,7 @@
        2 Majority 
        3 Chuck 
        1 Tempore 
+       2 Pro 
        3 Leadership 
        1 Within 
        6 College 
@@ -1726,6 +1815,7 @@
        7 Political 
        1 Madison 
        1 Marbury 
+       7 One 
        2 Article 
        3 Nebraska 
        1 Cabinet 
@@ -1733,6 +1823,7 @@
        1 Perceptions 
        1 Corruption 
        3 Democracy 
+      11 For 
        5 Higher 
        6 Index 
        3 Just 
@@ -1745,6 +1836,7 @@
        3 Prize 
        4 Nobel 
        1 Switzerland 
+       1 Low 
        2 Approximately 
        3 Obesity 
        1 Increasing 
@@ -1757,6 +1849,7 @@
        1 Adoption 
       10 Court 
       11 Supreme 
+       1 Roe 
        1 Abortion 
        3 Women 
        5 Family 
@@ -1827,6 +1920,8 @@
        1 Rank 
        1 Leading 
        2 Phoenix 
+       7 Of 
+      10 Los 
        7 Northeast 
        2 Megalopolis 
        1 Dakota 
@@ -1860,6 +1955,7 @@
       17 Washington 
        1 Mediterranean 
        5 Much 
+       7 To 
        1 Rockies 
        4 Park 
        1 Yellowstone 
@@ -1882,6 +1978,7 @@
        1 Measured 
        6 Mariana 
        8 Northern 
+      47 May 
        1 Plan 
        3 Comprehensive 
        2 Joint 
@@ -1902,6 +1999,7 @@
        7 Free 
        1 Beginning 
        3 Alan 
+       1 Due 
        1 Originating 
        2 Iraqi 
        4 Saudi 
@@ -1914,11 +2012,13 @@
       13 Iraq 
        7 Middle 
        1 Contemporary 
+       1 Pax 
        1 Following 
        2 Reagan 
        4 Ronald 
        1 Dependent 
        1 Families 
+       3 Aid 
        1 Program 
        1 Stamp 
        9 Food 
@@ -1942,6 +2042,7 @@
        2 Japanese 
        1 Hiroshima 
        2 Francisco 
+       6 San 
        1 Allied 
        1 Yalta 
        2 Woods 
@@ -1951,6 +2052,7 @@
        6 Japan 
        2 Empire 
       68 December 
+       7 On 
        2 Germany 
        4 Bowl 
        3 Dust 
@@ -1990,6 +2092,7 @@
        2 Mainland 
        2 River 
        2 Wars 
+       3 Old 
        3 Europe 
        5 Eastern 
        1 Further 
@@ -1997,6 +2100,7 @@
        1 Statue 
        2 Blacks 
        1 Crow 
+       3 Jim 
        7 Southern 
        1 Compromise 
        3 Republicans 
@@ -2036,6 +2140,7 @@
        5 Coast 
        3 Spain 
        1 Purchase 
+       4 Map 
        2 Baptists 
        1 Methodists 
        1 Deep 
@@ -2048,6 +2153,7 @@
        7 Second 
        6 They 
        4 Revolutionary 
+       2 Bay 
        2 Kealakekua 
        1 Maui 
       10 There 
@@ -2055,8 +2161,10 @@
        1 Nutka 
        3 Island 
        1 Bligh 
+       1 Bad 
        1 Cape 
        3 Oregon 
+       7 He 
        1 Alta 
        1 Passage 
        3 Northwest 
@@ -2079,9 +2187,12 @@
        1 Awakening 
        1 Relatively 
        2 Englishmen 
+       8 All 
        3 Georgia 
       10 African 
+       5 But 
        4 Colonial 
+      16 As 
        2 Cities 
        1 Manufacturers 
        1 Extraction 
@@ -2150,6 +2261,7 @@
        1 Corners 
        2 Four 
        1 Cahokia 
+       6 Its 
        5 Mexican 
        2 Mississippian 
        7 Over 
@@ -2188,6 +2300,7 @@
       14 Western 
        8 Martin 
        6 German 
+     103 In 
        2 Amerigo 
        5 Italian 
        1 Americas 
@@ -2197,6 +2310,7 @@
        3 Organization 
        7 Monetary 
       32 International 
+      21 It 
        1 Moon 
        2 Space 
       14 Union 
@@ -2205,6 +2319,7 @@
        3 Housing 
        1 Fair 
        2 Voting 
+      11 Act 
        9 Rights 
        2 Sweeping 
       15 Security 
@@ -2214,6 +2329,7 @@
       20 Civil 
       10 During 
        6 Bill 
+      44 War 
       20 Indian 
       11 French 
        1 Numerous 
@@ -2231,6 +2347,7 @@
       17 State 
        6 Canada 
       16 With 
+      12 At 
        5 Internet 
        1 Calling 
        1 Driving 
@@ -2241,6 +2358,7 @@
        3 Increase 
        1 Negative 
        1 Gini 
+       3 Per 
        1 Density 
       22 Population 
        6 Water 
@@ -2294,19 +2412,24 @@
        4 Asian 
        2 Black 
        9 White 
+       8 By 
        2 Ethnic 
       47 National 
        2 None 
        9 Official 
        4 City 
       43 York 
+     104 New 
        4 Largest 
        5 Capital 
+     492 The 
       38 North 
        1 Projection 
        2 Stripes 
        2 Stars 
       11 Other 
+       2 We 
+       3 God 
        1 Seal 
       30 Great 
        2 Flag 
