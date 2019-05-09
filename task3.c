@@ -6,7 +6,7 @@
 int main()
 {
     //init file pointer, const variables and count variables
-    FILE *infile = NULL;
+    FILE *inputfile = NULL;
     FILE *histinfile = NULL;
     const char EOL = '\n';
     const char delimiter[] = " ";
@@ -15,14 +15,14 @@ int main()
     int tempIndex = 0;
     char c;
 
-    infile = fopen("testdata.correlation.txt", "r");
+    inputfile = fopen("testdata.correlation.txt", "r");
     histinfile = fopen("", "r");
 
 
-   checkInfile(infile);
+   checkInfile(inputfile);
 
    //count number of chars in top line for dynamic fgets
-    while(c = getc(infile) != EOL)
+    while(c = getc(inputfile) != EOL)
     {
         lineChars++;
     }
@@ -32,8 +32,8 @@ int main()
     line[lineChars+1] = '\0';
 
     //return to file start, read in first line and store in char line[]
-    fseek(infile, 0, SEEK_SET);
-    fgets(line, lineChars, infile);
+    fseek(inputfile, 0, SEEK_SET);
+    fgets(line, lineChars, inputfile);
 
     //start after first block of chars, skip over excess spaces and
     //count the number of words in the line
@@ -62,9 +62,9 @@ int main()
 
     //init correlation from file, and populate it
     int correlation [wordCount][wordCount];
-    populateCorrelation(infile, wordCount, correlation);
+    populateCorrelation(inputfile, wordCount, correlation);
 
-    fclose(infile);
+    fclose(inputfile);
 
     char input[] = "CQUni";
     int topTen[wordCount];

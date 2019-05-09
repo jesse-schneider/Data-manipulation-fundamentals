@@ -56,7 +56,7 @@ int main()
 //    inputfile = fopen("wombat.txt", "r");
     outfile = fopen("testdata.correlation.txt", "w");
 //
-//    checkInfile(infile);
+//    checkInfile(inputfile);
 
 //    char ch;
 //    int counter = 0;
