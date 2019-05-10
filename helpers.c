@@ -20,6 +20,30 @@ int longestWord(FILE *inputfile)
     return largeLen;
 }
 
+int countHistWords(FILE *histfile, int histMaxWord)
+{
+  int words = 0;
+  int occurence;
+  char *word = malloc(histMaxWord * sizeof(char));
+
+    while(fscanf(histfile, "%i %s", &occurence, word) != EOF)
+    {
+        words++;
+    }
+    return words;
+}
+
+void initArray(int wordCount, int array[][wordCount])
+{
+  for(int i = 0; i < wordCount; i++)
+  {
+      for(int j = 0; j < wordCount; j++)
+      {
+          array[i][j] = 0;
+      }
+  }
+}
+
 int validWord(char name[], int len)
 {
     int valid = 1;
@@ -65,11 +89,11 @@ int skipSpaces(int i, char *str)
   }
 }
 
-void checkInfile(FILE *infile)
+void checkInfile(FILE *infile, char *filename)
 {
   if(infile == NULL)
   {
-      printf("error: unable to open file, please check path and re-run program.");
+      printf("error: unable to open file: %s please check path and re-run program.", filename);
       exit(1);
   }
 }
@@ -123,4 +147,24 @@ int half2DArray(int wordCount)
     wordCount--;
   }
   return size;
+}
+
+int findLargestLine(FILE *inputfile)
+{
+  int lineChars = 0;
+  int max = 0;
+  char c;
+
+  while(c = getc(inputfile) != EOF)
+  {
+     if(c!='\n')
+     {
+       lineChars++;
+     }
+     if(lineChars > max)
+     {
+       max = lineChars;
+     }
+  }
+  return max;
 }

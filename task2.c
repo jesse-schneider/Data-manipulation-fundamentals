@@ -2,141 +2,164 @@
 #include <string.h>
 #include <stdlib.h>
 #include "helpers.h"
-#define SIZE 10
 
-
-void printMatrix(int correlation[][SIZE], char wordList[][SIZE], FILE *outfile)
+void printMatrix(int wordCount, int histMaxWord, int correlation[][wordCount], char wordList[][histMaxWord], FILE *outfile)
 {
+    printf("Generating matrix...");
     char spacer [9] = "        ";
-    printf("%*s", 8, spacer);
     fprintf(outfile, "%*s", 8, spacer);
 
     //print top row of words
-    for (int i = 0; i < SIZE; i++)
+    for (int i = 0; i < wordCount; i++)
     {
         char *ptr = NULL;
         ptr = (char *) malloc((sizeof(char) * 7));
         ptr = wordList[i];
         ptr[7] = '\0';
         fprintf(outfile, "%-*s ", 7, ptr);
-        printf("%-*s ", 7, ptr);
     }
     fprintf(outfile, "\n");
-    printf("\n");
 
     //print word first, followed by correlation matrix
-    for(int i = 0; i < SIZE; i++)
+    for(int i = 0; i < wordCount; i++)
     {
         char *ptr = NULL;
         ptr = (char *) malloc((sizeof(char) * 7));
         ptr = wordList[i];
         ptr[7] = '\0';
         fprintf(outfile, "%*s ", 7, ptr);
-        printf("%*s ", 7, ptr);
+        //printf("%*s ", 7, ptr);
 
-        for(int j = 0; j < SIZE; j++)
+        for(int j = 0; j < wordCount; j++)
         {
             fprintf(outfile, "%-*i ", 7, correlation[i][j]);
-            printf("%-*i ", 7, correlation[i][j]);
         }
         fprintf(outfile, "\n");
-        printf("\n");
-        //free(ptr);
+        free(ptr);
     }
+    printf("Matrix Generated!");
 }
 
 int main()
 {
-//    FILE *inputfile = NULL;
+    FILE *inputfile = NULL;
+    FILE * histinfile = NULL;
     FILE *outfile = NULL;
-//    char sentence[SIZE];
-//    int count = 0;
-//    char sentences[SIZE];
-//
-//    inputfile = fopen("wombat.txt", "r");
-    outfile = fopen("testdata.correlation.txt", "w");
-//
-//    checkInfile(inputfile);
+    char filename[20];
+    char histFilename[30];
+    char correlationFilename[30];
 
-//    char ch;
-//    int counter = 0;
+    printf("please input a filename (without .txt extension) to generate a correlation matrix: \n");
+    scanf("%s", filename);
 
-    int correlation [SIZE][SIZE];
+    strcpy(histFilename, filename);
+    strcpy(correlationFilename, filename);
 
-    char listofWords[SIZE][SIZE];
+    strcat(filename, ".txt");
+    strcat(histFilename, ".histogram.txt");
+    strcat(correlationFilename, ".correlation.txt");
 
-    int temparray[SIZE];
+    inputfile = fopen(filename, "r");
+    histinfile = fopen(histFilename, "r");
+    checkInfile(inputfile, filename);
+    checkInfile(histinfile, histFilename);
+
+    outfile = fopen(correlationFilename, "w");
+
+    int maxword = longestWord(inputfile);
+    fseek(inputfile, 0, SEEK_SET);
+    int max = findLargestLine(inputfile);
+    fseek(inputfile, 0, SEEK_SET);
+
+
+    int histMaxWord = longestWord(histinfile);
+    fseek(histinfile, 0, SEEK_SET);
+    int wordCount = countHistWords(histinfile, histMaxWord);
+    fseek(histinfile, 0, SEEK_SET);
+    printf("%i\n", wordCount);
+
+
+    int temparray[wordCount];
+    printf("got here 1 \n");
     int tempIndex = 0;
+    printf("got here 2 \n");
+    int correlation [wordCount][wordCount];
+    printf("got here 3 \n");
+    char listofWords[wordCount][histMaxWord];
+    printf("got here 4 \n");
+    char sentence[max];
+    printf("got here 5 \n");
 
-    strcpy(listofWords[0], "Test");
-    strcpy(listofWords[1], "Jesse");
-    strcpy(listofWords[2], "Samuel");
-    strcpy(listofWords[3], "Danos");
-    strcpy(listofWords[4], "Cook");
-    strcpy(listofWords[5], "Freedcamp");
-    strcpy(listofWords[6], "Github");
-    strcpy(listofWords[7], "Gitlab");
-    strcpy(listofWords[8], "Griffith");
-    strcpy(listofWords[9], "CQUni");
 
-    char sentence[] = "This is a Test sentence Jesse Github Cook CQUni.";
+    initArray(wordCount, correlation);
+    printf("got here");
 
-    for(int i = 0; i < SIZE; i++)
+    char *word = NULL;
+    int occurence = 0;
+    word = malloc(histMaxWord * sizeof(char));
+
+    while(fscanf(histinfile, "%i %s", &occurence, word) == 2)
     {
-        for(int j = 0; j < SIZE; j++)
-        {
-            correlation[i][j] = 0;
-        }
+      strcpy(listofWords[tempIndex], word);
+      tempIndex++;
     }
 
-    int size = strlen(sentence);
-    char delimiter[] = " ";
+    // for(int i = 0; i < wordCount; i++)
+    // printf("%s \n", listofWords[i]);
 
-    char *ptr = strtok(sentence, delimiter);
+    tempIndex = 0;
+    fclose(histinfile);
 
-    //break sentence string into words
-    while(ptr != NULL)
-    {
-        char word[SIZE];
-        strcpy(word, ptr);
-        int len = strlen(word);
+      while(fgets(sentence, sizeof(sentence), inputfile) != NULL)
+      {
+          int size = strlen(sentence);
+          char delimiter[] = " ";
 
-        if(word[len-1] == '.')
-        {
-            word[len-1] = '\0';
-        }
+          char *ptr = strtok(sentence, delimiter);
 
-        int valid = validWord(word, len);
+          //break sentence string into words
+          while(ptr != NULL)
+          {
+              char word[maxword];
+              strcpy(word, ptr);
 
-        //navigate through sentence word by word, check for word in list of words
-        for(int i = 0; i < SIZE; i++)
-        {
-            int compare = strcmp(word,listofWords[i]);
-            if (compare == 0)
-            {
-                temparray[tempIndex] = i;
-                temparray[tempIndex + 1] = '\0';
-                tempIndex++;
-            }
-        }
-        ptr = strtok(NULL, delimiter);
-    }
+              int len = strlen(word);
 
-        //navigate to coordinates of correlation matrix, increment value
-        for (int i = 0; i < tempIndex; i++)
-        {
-            for(int j = i+1; j < tempIndex; j++)
-            {
-                correlation[temparray[i]][temparray[j]]++;
-                correlation[temparray[j]][temparray[i]]++;
-            }
-        }
+              if(word[len-1] == '.')
+              {
+                  word[len-1] = '\0';
+              }
 
-        printMatrix(correlation, listofWords, outfile);
+              //navigate through sentence word by word, check for word in list of words
+              //if found, store index of word
+              for(int i = 0; i < wordCount; i++)
+              {
+                  int compare = strcmp(word,listofWords[i]);
+                  if (compare == 0)
+                  {
+                      temparray[tempIndex] = i;
+                      temparray[tempIndex + 1] = '\0';
+                      tempIndex++;
+                  }
+              }
+              ptr = strtok(NULL, delimiter);
+          }
+      }
 
-    //fclose(inputfile);
+      //navigate to coordinates of correlation matrix, increment value
+      for (int i = 0; i < tempIndex; i++)
+      {
+          for(int j = i+1; j < tempIndex; j++)
+          {
+              correlation[temparray[i]][temparray[j]]++;
+              correlation[temparray[j]][temparray[i]]++;
+          }
+      }
+
+      printMatrix(wordCount, histMaxWord, correlation, listofWords, outfile);
+
+    fclose(inputfile);
     fclose(outfile);
-    return 0;
 }
 
 

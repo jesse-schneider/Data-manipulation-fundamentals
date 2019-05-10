@@ -10,9 +10,17 @@ int main()
     FILE *inputfile = NULL;
     FILE *outfile = NULL;
     int count = 0;
+    char filename[20];
+    char histFilename[30];
 
-   inputfile = fopen("united_states.txt", "r");
-   outfile = fopen("united_states.histogram.txt", "w");
+    printf("please input a filename (without .txt extension) to generate a histogram: \n");
+    scanf("%s", filename);
+    strcpy(histFilename, filename);
+    strcat(filename, ".txt");
+    strcat(histFilename, ".histogram.txt");
+
+   inputfile = fopen(filename, "r");
+   outfile = fopen(histFilename, "w");
 
    int size = longestWord(inputfile);
    fseek(inputfile, 0, SEEK_SET);
