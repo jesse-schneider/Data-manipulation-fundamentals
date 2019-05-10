@@ -33,7 +33,7 @@ int countHistWords(FILE *histfile, int histMaxWord)
     return words;
 }
 
-void initArray(int wordCount, int array[][wordCount])
+void initArray(int wordCount, int **array)
 {
   for(int i = 0; i < wordCount; i++)
   {
