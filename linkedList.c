@@ -80,7 +80,7 @@ int checkForDuplicates(char word[])
     return 0;
 }
 
-void addToArray(int popTopTen[], int popTopTenIndex[])
+void addToArray(int popTopTen[], int popTopTenIndex[], char **list)
 {
   NODE *nextNode = head;
   int inx = 0;
@@ -88,7 +88,9 @@ void addToArray(int popTopTen[], int popTopTenIndex[])
   while(nextNode != NULL)
   {
       popTopTen[inx] = nextNode->count;
+      strcpy(list[inx], nextNode->word);
       popTopTenIndex[inx] = inx;
+
       inx++;
 
       nextNode = nextNode->next;

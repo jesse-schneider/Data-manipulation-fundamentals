@@ -93,33 +93,37 @@ void checkInfile(FILE *infile, char *filename)
 {
   if(infile == NULL)
   {
-      printf("error: unable to open file: %s please check path and re-run program.", filename);
+      printf("error: unable to open file: %s please check path and re-run program.\n", filename);
       exit(1);
   }
 }
 
-void sortforWord(int topTen[], int topTenIndex[], int wordCount)
+void sort(int topTen[], int topTenIndex[], int wordCount)
 {
+  int temp = 0;
+  int tempI = 0;
   for(int i = 0; i < 10; i++)
   {
-    for(int j = i + 1; j < wordCount; j++)
+    for(int j = i+1; j < (wordCount-1); j++)
     {
       if(topTen[i] < topTen[j])
       {
-        int temp = topTen[i];
-        int tempI = topTenIndex[i];
+        temp = topTen[i];
+        tempI = topTenIndex[i];
 
         topTen[i] = topTen[j];
-        topTenIndex[i] = j;
+        topTenIndex[i] = topTenIndex[j];
 
         topTen[j] = temp;
-        topTenIndex[j] = i;
+        topTenIndex[j] = tempI;
       }
+
     }
+
   }
 }
 
-void populateCorrelation(FILE *infile, int wordCount, int correlation[][wordCount])
+void populateCorrelation(FILE *infile, int wordCount, int **correlation)
 {
   for(int i = 0; i < wordCount; i++)
   {
@@ -136,17 +140,6 @@ void populateCorrelation(FILE *infile, int wordCount, int correlation[][wordCoun
       }
     }
   }
-}
-
-int half2DArray(int wordCount)
-{
-  int size = 0;
-  while(wordCount != 0)
-  {
-    size += wordCount;
-    wordCount--;
-  }
-  return size;
 }
 
 int findLargestLine(FILE *inputfile)
@@ -167,4 +160,12 @@ int findLargestLine(FILE *inputfile)
      }
   }
   return max;
+}
+void ammendFileNames(char *filename, char *correlationFilename, char *histFilename)
+{
+  strcpy(correlationFilename, filename);
+  strcpy(histFilename, filename);
+
+  strcat(histFilename, ".histogram.txt");
+  strcat(correlationFilename, ".correlation.txt");
 }

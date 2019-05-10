@@ -51,12 +51,8 @@ int main()
     printf("please input a filename (without .txt extension) to generate a correlation matrix: \n");
     scanf("%s", filename);
 
-    strcpy(histFilename, filename);
-    strcpy(correlationFilename, filename);
-
+    ammendFileNames(filename, correlationFilename, histFilename);
     strcat(filename, ".txt");
-    strcat(histFilename, ".histogram.txt");
-    strcat(correlationFilename, ".correlation.txt");
 
     inputfile = fopen(filename, "r");
     histinfile = fopen(histFilename, "r");

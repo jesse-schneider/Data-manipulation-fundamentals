@@ -9,31 +9,37 @@ int main()
     //init file pointer, const variables and count variables
     FILE *inputfile = NULL;
     FILE *histinfile = NULL;
-    const char EOL = '\n';
     const char delimiter[] = " ";
-    int lineChars = 0;
     int wordCount = 0;
     int tempIndex = 0;
-    char c;
 
-    inputfile = fopen("testdata.correlation.txt", "r");
-    histinfile = fopen("australia.histogram.txt", "r");
+    char input[20];
+    char filename[20];
+    char histFilename[30];
+    char correlationFilename[30];
 
-   checkInfile(inputfile);
+    printf("Please enter a the file(without extensions) to be looking at: \n");
+    scanf("%s", filename);
+
+    ammendFileNames(filename, correlationFilename, histFilename);
+
+    inputfile = fopen(correlationFilename, "r");
+    histinfile = fopen(histFilename, "r");
+    checkInfile(inputfile, correlationFilename);
+
+    printf("please enter a 7 character word from the \ncorrelation matrix to find it's top ten most associated words: \n");
+    scanf("%s", input);
 
    //count number of chars in top line for dynamic fgets
-    while(c = getc(inputfile) != EOL)
-    {
-        lineChars++;
-    }
+    int max = findLargestLine(inputfile);
 
-    //init line string, add extra char for '\0'
-    char line[lineChars+1];
-    line[lineChars+1] = '\0';
+    //init line string pointer
+    char *line = NULL;
+    line = malloc(max * sizeof(char));
 
     //return to file start, read in first line and store in char line[]
     fseek(inputfile, 0, SEEK_SET);
-    fgets(line, lineChars, inputfile);
+    fgets(line, max, inputfile);
 
     //start after first block of chars, skip over excess spaces and
     //count the number of words in the line
@@ -61,12 +67,17 @@ int main()
     }
 
     //init correlation from file, and populate it
-    int correlation [wordCount][wordCount];
+    int **correlation;
+    correlation = (int**)malloc(sizeof(int*)* wordCount);
+    for (int i = 0; i < wordCount; i++)
+    {
+      correlation[i] = (int*)malloc(sizeof(int)* wordCount);
+    }
+
     populateCorrelation(inputfile, wordCount, correlation);
 
     fclose(inputfile);
 
-    char input[] = "CQUnit";
     int topTen[wordCount];
     int topTenIndex[wordCount];
     int index = 0;
@@ -91,19 +102,24 @@ int main()
         topTenIndex[i] = i;
       }
 
-      sortforWord(topTen, topTenIndex, wordCount);
+      sort(topTen, topTenIndex, wordCount);
 
       //display top ten words and the number of occurences
       for(int i = 0; i < 10; i++)
       {
         printf("%i ", topTen[i]);
-        printf("%s\n", listofWords[topTenIndex[i]]);
+        printf("%s \n", listofWords[topTenIndex[i]]);
       }
+      for (int i = 0; i < wordCount; i++)
+        free(correlation[i]);
+   free(correlation);
+
+
     }
     else {
       printf("word not in correlation matrix\n");
 
-      checkInfile(histinfile);
+      checkInfile(histinfile, histFilename);
 
       int size = longestWord(histinfile);
       fseek(histinfile, 0, SEEK_SET);
@@ -117,27 +133,24 @@ int main()
         insertAtHead(addToList);
       }
 
-      int popTopTen[2500];
-      int popTopTenIndex[2500];
-      addToArray(popTopTen, popTopTenIndex);
-
-      for(int i = 0; i < wordCount; i++)
+      int popTopTen[wordCount];
+      int popTopTenIndex[wordCount];
+      char **listArr;
+      listArr = (char**)malloc(sizeof(char*)* wordCount);
+      for (int i = 0; i < wordCount; i++)
       {
-        printf("%i %i \n", popTopTen[i], popTopTenIndex[i]);
+        listArr[i] = (char*)malloc(sizeof(char)* size);
+      }
+      addToArray(popTopTen, popTopTenIndex, listArr);
+      sort(popTopTen, popTopTenIndex, wordCount);
+
+      for(int i = 0; i < 10; i++)
+      {
+        printf("%i %s \n", popTopTen[i], listArr[popTopTenIndex[i]]);
       }
 
       //outputList();
-      //
-      //read in linked list from file and store
-      //traverse list, place all occurences in an array, store index value in another array
-      //selection sort top 10 occurences, parallel sort indexes
     }
     fclose(inputfile);
     fclose(histinfile);
 }
-
-/**
-- finish task2 input and output some usable data for task3
-- finish task3
-
-*/
