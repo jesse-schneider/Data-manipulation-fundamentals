@@ -112,9 +112,8 @@ int main()
       }
       for (int i = 0; i < wordCount; i++)
         free(correlation[i]);
-   free(correlation);
-
-
+      free(correlation);
+    fclose(inputfile);
     }
     else {
       printf("word not in correlation matrix\n");
@@ -135,22 +134,22 @@ int main()
 
       int popTopTen[wordCount];
       int popTopTenIndex[wordCount];
+
       char **listArr;
       listArr = (char**)malloc(sizeof(char*)* wordCount);
       for (int i = 0; i < wordCount; i++)
       {
         listArr[i] = (char*)malloc(sizeof(char)* size);
       }
+
       addToArray(popTopTen, popTopTenIndex, listArr);
+      fclose(histinfile);
+      
       sort(popTopTen, popTopTenIndex, wordCount);
 
       for(int i = 0; i < 10; i++)
       {
         printf("%i %s \n", popTopTen[i], listArr[popTopTenIndex[i]]);
       }
-
-      //outputList();
     }
-    fclose(inputfile);
-    fclose(histinfile);
 }

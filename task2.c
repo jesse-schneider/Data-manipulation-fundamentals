@@ -148,6 +148,7 @@ int main()
           }
       }
       fclose(inputfile);
+      
       //navigate to coordinates of correlation matrix, increment value
       for (int i = 0; i < tempIndex; i++)
       {
