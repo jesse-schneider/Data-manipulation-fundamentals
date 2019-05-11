@@ -1,3 +1,0 @@
-C:/Users/Jesse/CLionProjects/Prog-fund/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/Jesse/CLionProjects/Prog-fund/cmake-build-debug/CMakeFiles/Prog_fund.dir
-C:/Users/Jesse/CLionProjects/Prog-fund/cmake-build-debug/CMakeFiles/edit_cache.dir

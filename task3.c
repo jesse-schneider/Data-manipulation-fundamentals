@@ -144,7 +144,7 @@ int main()
 
       addToArray(popTopTen, popTopTenIndex, listArr);
       fclose(histinfile);
-      
+
       sort(popTopTen, popTopTenIndex, wordCount);
 
       for(int i = 0; i < 10; i++)

@@ -169,3 +169,46 @@ void ammendFileNames(char *filename, char *correlationFilename, char *histFilena
   strcat(histFilename, ".histogram.txt");
   strcat(correlationFilename, ".correlation.txt");
 }
+
+int getWordCount(char *line)
+{
+  //start after first block of chars, skip over excess spaces and
+  //count the number of words in the line
+  int wordCount = 0;
+  int i = 8;
+  while(line[i] != '\0')
+  {
+    if(line[i] == ' ')
+    {
+      wordCount++;
+      i = skipSpaces(i, line);
+    }
+    i++;
+  }
+  return wordCount;
+}
+
+void allocateArray(int wordCount, char **list)
+{
+  list = (char**)malloc(sizeof(char*)* wordCount);
+  
+  for (int i = 0; i < wordCount; i++)
+  {
+    list[i] = (char*)malloc(sizeof(char)* 8);
+  }
+}
+
+void  populateWordsList(char *line, int wordCount, int tempIndex, char **listofWords)
+{
+  const char delimiter[] = " ";
+
+  char *ptr = strtok(line, delimiter);
+
+  //break sentence string into words
+  while(tempIndex < wordCount)
+  {
+    strcpy(listofWords[tempIndex], ptr);
+    tempIndex++;
+    ptr = strtok(NULL, delimiter);
+  }
+}

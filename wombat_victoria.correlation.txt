@@ -1,0 +1,8 @@
+        The     South   All     Souther After   Governm Sydney  
+    The 2918    710     116     116     62      62      62      
+  South 710     0       27      27      14      14      14      
+    All 116     27      0       5       3       3       3       
+Souther 116     27      5       0       3       3       3       
+  After 62      14      3       3       0       2       2       
+Governm 62      14      3       3       2       0       2       
+ Sydney 62      14      3       3       2       2       0       

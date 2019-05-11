@@ -15,5 +15,8 @@ void sort(int topTen[], int topTenIndex[], int wordCount);
 void populateCorrelation(FILE *infile, int wordCount, int **correlation);
 int findLargestLine(FILE *inputfile);
 void ammendFileNames(char *filename, char *correlationFilename, char *histFilename);
+int getWordCount(char *line);
+void populateWordsList(char *line, int wordCount,  int tempIndex, char **listofWords);
+void allocateArray(int wordCount, char **list);
 
 #endif //PROG_FUND_HELPERS_H

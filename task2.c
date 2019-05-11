@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "helpers.h"
 
-void printMatrix(int wordCount, int histMaxWord, int **correlation, char **wordList, FILE *outfile)
+void printMatrix(int wordCount, int **correlation, char **wordList, FILE *outfile)
 {
     printf("Generating matrix...");
     char spacer [9] = "        ";
@@ -148,7 +148,7 @@ int main()
           }
       }
       fclose(inputfile);
-      
+
       //navigate to coordinates of correlation matrix, increment value
       for (int i = 0; i < tempIndex; i++)
       {
@@ -159,7 +159,7 @@ int main()
           }
       }
 
-      printMatrix(wordCount, histMaxWord, correlation, listofWords, outfile);
+      printMatrix(wordCount, correlation, listofWords, outfile);
 
       for (int i = 0; i < wordCount; i++)
       {

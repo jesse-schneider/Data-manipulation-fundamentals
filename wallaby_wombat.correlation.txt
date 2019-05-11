@@ -1,0 +1,5 @@
+        The     South   Norther Externa 
+    The 86      14      14      14      
+  South 14      0       2       2       
+Norther 14      2       0       2       
+Externa 14      2       2       0       

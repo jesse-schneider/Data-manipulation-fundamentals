@@ -11,6 +11,7 @@ struct Node {
    struct Node *next;
 }; typedef struct Node NODE;
 
+
 int checkForDuplicates(char word[]);
 void printList(FILE *outfile);
 void insertAtHead(NODE *newNode);
