@@ -42,18 +42,10 @@ int main()
     int tempIndex = 0;
 
     int **correlation;
-    correlation = (int**)malloc(sizeof(int*)* wordCount);
-    for (int i = 0; i < wordCount; i++)
-    {
-      correlation[i] = (int*)malloc(sizeof(int)* wordCount);
-    }
+    allocateCorrArray(wordCount, &correlation);
 
     char **listofWords;
-    listofWords = (char**)malloc(sizeof(char*)* wordCount);
-    for (int i = 0; i < wordCount; i++)
-    {
-      listofWords[i] = (char*)malloc(sizeof(char)* histMaxWord);
-    }
+    allocateWordsArray(wordCount, &listofWords, histMaxWord);
 
     char sentence[max];
 
