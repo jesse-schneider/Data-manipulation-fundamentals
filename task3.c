@@ -7,10 +7,9 @@
 int main()
 {
     //init file pointer, const variables and count variables
+    const char delimiter[] = " ";
     FILE *inputfile = NULL;
     FILE *histinfile = NULL;
-    const char delimiter[] = " ";
-    int wordCount = 0;
     int tempIndex = 0;
 
     char input[20];
@@ -27,7 +26,7 @@ int main()
     histinfile = fopen(histFilename, "r");
     checkInfile(inputfile, correlationFilename);
 
-    printf("please enter a 7 character word from the \ncorrelation matrix to find it's top ten most associated words: \n");
+    printf("please enter a 7 character word from the correlation matrix to find it's top ten most associated words: \n");
     scanf("%s", input);
 
    //count number of chars in top line for dynamic fgets
@@ -41,21 +40,11 @@ int main()
     fseek(inputfile, 0, SEEK_SET);
     fgets(line, max, inputfile);
 
-    //start after first block of chars, skip over excess spaces and
-    //count the number of words in the line
-    int i = 8;
-    while(line[i] != '\0')
-    {
-      if(line[i] == ' ')
-      {
-        wordCount++;
-        i = skipSpaces(i, line);
-      }
-      i++;
-    }
+    int wordCount = getWordCount(line);
 
     //init list of words array,
     char listofWords[wordCount][8];
+    //populateWordsList(line, wordCount, tempIndex, listofWords);
     char *ptr = strtok(line, delimiter);
 
     //break sentence string into words
@@ -68,12 +57,7 @@ int main()
 
     //init correlation from file, and populate it
     int **correlation;
-    correlation = (int**)malloc(sizeof(int*)* wordCount);
-    for (int i = 0; i < wordCount; i++)
-    {
-      correlation[i] = (int*)malloc(sizeof(int)* wordCount);
-    }
-
+    allocateCorrArray(wordCount, &correlation);
     populateCorrelation(inputfile, wordCount, correlation);
 
     fclose(inputfile);
@@ -113,6 +97,7 @@ int main()
       for (int i = 0; i < wordCount; i++)
         free(correlation[i]);
       free(correlation);
+
     fclose(inputfile);
     }
     else {
@@ -136,15 +121,12 @@ int main()
       int popTopTenIndex[wordCount];
 
       char **listArr;
-      listArr = (char**)malloc(sizeof(char*)* wordCount);
-      for (int i = 0; i < wordCount; i++)
-      {
-        listArr[i] = (char*)malloc(sizeof(char)* size);
-      }
-
+      allocateWordsArray(wordCount, &listArr, size);
       addToArray(popTopTen, popTopTenIndex, listArr);
+
       fclose(histinfile);
 
+      //sort array values, preserve indexes when sorting
       sort(popTopTen, popTopTenIndex, wordCount);
 
       for(int i = 0; i < 10; i++)

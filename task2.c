@@ -3,41 +3,6 @@
 #include <stdlib.h>
 #include "helpers.h"
 
-void printMatrix(int wordCount, int **correlation, char **wordList, FILE *outfile)
-{
-    printf("Generating matrix...");
-    char spacer [9] = "        ";
-    fprintf(outfile, "%*s", 8, spacer);
-
-    //print top row of words
-    for (int i = 0; i < wordCount; i++)
-    {
-        char *ptr = NULL;
-        ptr = (char *) malloc((sizeof(char) * 7));
-        ptr = wordList[i];
-        ptr[7] = '\0';
-        fprintf(outfile, "%-*s ", 7, ptr);
-    }
-    fprintf(outfile, "\n");
-
-    //print word first, followed by correlation matrix
-    for(int i = 0; i < wordCount; i++)
-    {
-        char *ptr = NULL;
-        ptr = (char *) malloc((sizeof(char) * 7));
-        ptr = wordList[i];
-        ptr[7] = '\0';
-        fprintf(outfile, "%*s ", 7, ptr);
-        //printf("%*s ", 7, ptr);
-
-        for(int j = 0; j < wordCount; j++)
-        {
-            fprintf(outfile, "%-*i ", 7, correlation[i][j]);
-        }
-        fprintf(outfile, "\n");
-    }
-    printf("Matrix Generated!");
-}
 
 int main()
 {
@@ -159,8 +124,10 @@ int main()
           }
       }
 
+      //print correlation to file
       printMatrix(wordCount, correlation, listofWords, outfile);
 
+      //free data
       for (int i = 0; i < wordCount; i++)
       {
         free(correlation[i]);
@@ -171,14 +138,3 @@ int main()
 
    fclose(outfile);
 }
-
-
-/*
- *
- * 1. Create 2D array with len = Listofwords, initiate all [i][j] as 0
- * 2. Read in a sentence word by word until '.', compare word to listofwords, if yes, add word index to temp array
- * 3. (output only) Print List of words as first array
- * 4. Iterate 2D loop through each index, ignoring what is on the left of it
- * 5. Add 1 to value in 2D array at each other index in temp array, 2D array [i][j] and [j][i] i = word1Tempindex, j = word2Tempindex
- * 6. Repeat until EOF
- * */

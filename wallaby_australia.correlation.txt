@@ -1,0 +1,9 @@
+        The     In      Althoug There   General Externa On      Eastern 
+    The 270     124     38      28      22      22      22      22      
+     In 124     44      16      11      9       9       9       9       
+Althoug 38      16      0       4       3       3       3       3       
+  There 28      11      4       0       3       3       3       3       
+General 22      9       3       3       0       2       2       2       
+Externa 22      9       3       3       2       0       2       2       
+     On 22      9       3       3       2       2       0       2       
+Eastern 22      9       3       3       2       2       2       0       

@@ -17,6 +17,10 @@ int findLargestLine(FILE *inputfile);
 void ammendFileNames(char *filename, char *correlationFilename, char *histFilename);
 int getWordCount(char *line);
 void populateWordsList(char *line, int wordCount,  int tempIndex, char **listofWords);
-void allocateArray(int wordCount, char **list);
+void allocateWordsArray(int wordCount, char ***list, int size);
+void allocateCorrArray(int wordCount, int ***correlation);
+void printMatrix(int wordCount, int **correlation, char **wordList, FILE *outfile);
+void freeCorrArray(int count, int **array);
+void freeWordArray(int count, char **array);
 
 #endif //PROG_FUND_HELPERS_H

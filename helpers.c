@@ -188,13 +188,23 @@ int getWordCount(char *line)
   return wordCount;
 }
 
-void allocateArray(int wordCount, char **list)
+void allocateWordsArray(int wordCount, char ***list, int size)
 {
-  list = (char**)malloc(sizeof(char*)* wordCount);
-  
+  *list = malloc(sizeof(char*) * wordCount);
+
   for (int i = 0; i < wordCount; i++)
   {
-    list[i] = (char*)malloc(sizeof(char)* 8);
+    (*list)[i] = malloc(sizeof(char)* size);
+  }
+}
+
+void allocateCorrArray(int wordCount, int ***correlation)
+{
+  *correlation = malloc(sizeof(int*) * wordCount);
+
+  for (int i = 0; i < wordCount; i++)
+  {
+    (*correlation)[i] = malloc(sizeof(int)* wordCount);
   }
 }
 
@@ -211,4 +221,57 @@ void  populateWordsList(char *line, int wordCount, int tempIndex, char **listofW
     tempIndex++;
     ptr = strtok(NULL, delimiter);
   }
+}
+
+void printMatrix(int wordCount, int **correlation, char **wordList, FILE *outfile)
+{
+    printf("Generating combined matrix...");
+    char spacer [9] = "        ";
+    fprintf(outfile, "%*s", 8, spacer);
+
+    //print top row of words
+    for (int i = 0; i < wordCount; i++)
+    {
+        char *ptr = NULL;
+        ptr = (char *) malloc((sizeof(char) * 7));
+        ptr = wordList[i];
+        ptr[7] = '\0';
+        fprintf(outfile, "%-*s ", 7, ptr);
+    }
+    fprintf(outfile, "\n");
+
+    //print word first, followed by correlation matrix
+    for(int i = 0; i < wordCount; i++)
+    {
+        char *ptr = NULL;
+        ptr = (char *) malloc((sizeof(char) * 7));
+        ptr = wordList[i];
+        ptr[7] = '\0';
+        fprintf(outfile, "%*s ", 7, ptr);
+        //printf("%*s ", 7, ptr);
+
+        for(int j = 0; j < wordCount; j++)
+        {
+            fprintf(outfile, "%-*i ", 7, correlation[i][j]);
+        }
+        fprintf(outfile, "\n");
+    }
+    printf("Matrix combined Generated!");
+}
+
+void freeCorrArray(int count, int **array)
+{
+  for (int i = 0; i < count; i++)
+  {
+    free(array[i]);
+  }
+  free(array);
+}
+void freeWordArray(int count, char **array)
+{
+  for (int i = 0; i < count; i++)
+  {
+    free(array[i]);
+  }
+  free(array);
 }

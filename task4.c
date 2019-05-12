@@ -3,42 +3,6 @@
 #include <stdlib.h>
 #include "helpers.h"
 
-void printMatrix(int wordCount, int **correlation, char **wordList, FILE *outfile)
-{
-    printf("Generating combined matrix...");
-    char spacer [9] = "        ";
-    fprintf(outfile, "%*s", 8, spacer);
-
-    //print top row of words
-    for (int i = 0; i < wordCount; i++)
-    {
-        char *ptr = NULL;
-        ptr = (char *) malloc((sizeof(char) * 7));
-        ptr = wordList[i];
-        ptr[7] = '\0';
-        fprintf(outfile, "%-*s ", 7, ptr);
-    }
-    fprintf(outfile, "\n");
-
-    //print word first, followed by correlation matrix
-    for(int i = 0; i < wordCount; i++)
-    {
-        char *ptr = NULL;
-        ptr = (char *) malloc((sizeof(char) * 7));
-        ptr = wordList[i];
-        ptr[7] = '\0';
-        fprintf(outfile, "%*s ", 7, ptr);
-        //printf("%*s ", 7, ptr);
-
-        for(int j = 0; j < wordCount; j++)
-        {
-            fprintf(outfile, "%-*i ", 7, correlation[i][j]);
-        }
-        fprintf(outfile, "\n");
-    }
-    printf("Matrix combined Generated!");
-}
-
 int main()
 {
   const char delimiter[] = " ";
@@ -55,7 +19,7 @@ int main()
   char correlationFilename2[30];
 
 
-  printf("Please enter a the file(without extensions) to be looking at: \n");
+  printf("Please enter 2 different files (without extensions) to be looking at: \n");
   scanf("%s %s", filename, filename2);
 
   ammendFileNames(filename, correlationFilename, histFilename);
@@ -80,6 +44,7 @@ int main()
    int max2 = findLargestLine(corrfile2);
    fseek(corrfile2, 0, SEEK_SET);
 
+   //dynamic pointers for the top row of the correlation
    char *line1 = NULL;
    char *line2 = NULL;
    line1 = malloc(max1 * sizeof(char));
@@ -90,12 +55,13 @@ int main()
 
    int wordCount1 = getWordCount(line1);
    int wordCount2 = getWordCount(line2);
+   int wordCount3;
 
+   //create and allocate memory for word lists 1, 2 and list of all words combinedWords
    char **list1;
    char **list1Plus2;
    char ** list2;
 
-   int wordCount3;
    if(wordCount1 < wordCount2)
    {
      wordCount3 = wordCount2;
@@ -105,36 +71,21 @@ int main()
      wordCount3 = wordCount1;
    }
 
-   //allocateArray(wordCount1, list1);
-   list1 = (char**)malloc(sizeof(char*)* wordCount1);
-   for (int i = 0; i < wordCount1; i++)
-   {
-     list1[i] = (char*)malloc(sizeof(char)* 8);
-   }
-
-   list1Plus2 = (char**)malloc(sizeof(char*)* wordCount3);
-   for (int i = 0; i < wordCount3; i++)
-   {
-     list1Plus2[i] = (char*)malloc(sizeof(char)* 8);
-   }
-
-   list2 = (char**)malloc(sizeof(char*)* wordCount2);
-   for (int i = 0; i < wordCount2; i++)
-   {
-     list2[i] = (char*)malloc(sizeof(char)* 8);
-   }
+   allocateWordsArray(wordCount1, &list1, 8);
+   allocateWordsArray(wordCount2, &list2, 8);
+   allocateWordsArray(wordCount3, &list1Plus2, 8);
 
    populateWordsList(line1, wordCount1, tempIndex, list1);
    tempIndex = 0;
 
    char *ptr = strtok(line2, delimiter);
 
-   int count = 0;
+   int iterator = 0;
    int combinedWords = 0;
    //break sentence string into words
-   while(count < wordCount2)
+   while(iterator < wordCount2)
    {
-     strcpy(list2[count], ptr);
+     strcpy(list2[iterator], ptr);
      for(int i = 0; i < wordCount1; i++)
      {
        int cmp = strcmp(list1[i], ptr);
@@ -146,21 +97,17 @@ int main()
          break;
        }
     }
-    count++;
+    iterator++;
     ptr = strtok(NULL, delimiter);
   }
+
   tempIndex = 0;
 
   int corr1Ind[combinedWords];
   int corr2Ind[combinedWords];
 
   int **newCorr;
-  newCorr = (int**)malloc(sizeof(int*)* combinedWords);
-  for (int i = 0; i < combinedWords; i++)
-  {
-    newCorr[i] = (int*)malloc(sizeof(int)* combinedWords);
-  }
-
+  allocateCorrArray(combinedWords, &newCorr);
   initArray(combinedWords, newCorr);
 
   for(int i = 0; i < combinedWords; i++)
@@ -190,23 +137,19 @@ int main()
       }
     }
   }
+
+  //free word lists, done with them
+  freeWordArray(wordCount1, list1);
+  freeWordArray(wordCount2, list2);
+
   tempIndex = 0;
 
    //init correlation from file, and populate it
    int **correlation1;
    int **correlation2;
 
-   correlation1 = (int**)malloc(sizeof(int*)* wordCount1);
-   for (int i = 0; i < wordCount1; i++)
-   {
-     correlation1[i] = (int*)malloc(sizeof(int)* wordCount1);
-   }
-
-   correlation2 = (int**)malloc(sizeof(int*)* wordCount2);
-   for (int i = 0; i < wordCount2; i++)
-   {
-     correlation2[i] = (int*)malloc(sizeof(int)* wordCount2);
-   }
+   allocateCorrArray(wordCount1, &correlation1);
+   allocateCorrArray(wordCount2, &correlation2);
 
    populateCorrelation(corrfile1, wordCount1, correlation1);
    populateCorrelation(corrfile2, wordCount2, correlation2);
@@ -216,6 +159,7 @@ int main()
    int num = 0;
 
    //check both matrices, if they aren't 0, add result into combined matrix
+   //also sum entire line, if > 0, then add to a matrix for sorting, and save index
    for(int i = 0; i < combinedWords; i++)
    {
      sum = 0;
@@ -236,36 +180,17 @@ int main()
        num++;
      }
    }
+   freeCorrArray(wordCount1, correlation1);
+   freeCorrArray(wordCount2, correlation2);
 
-   int temp = 0;
-   int tempI = 0;
+   //sort summed values, to get rid of zero values
+   sort(sumArray, sumIndexArray, combinedWords);
 
-   for(int i = 0; i < combinedWords; i++)
-   {
-     for(int j = i+1; j < (combinedWords-1); j++)
-     {
-       if(sumArray[i] < sumArray[j])
-       {
-         temp = sumArray[i];
-         tempI = sumIndexArray[i];
-
-         sumArray[i] = sumArray[j];
-         sumIndexArray[i] = sumIndexArray[j];
-
-         sumArray[j] = temp;
-         sumIndexArray[j] = tempI;
-       }
-     }
-   }
-
+   //init a correlation to the correct final size
    int **finalCorr;
-   finalCorr = (int**)malloc(sizeof(int*)* num);
-   for (int i = 0; i < num; i++)
-   {
-     finalCorr[i] = (int*)malloc(sizeof(int)* num);
-   }
-
+   allocateCorrArray(num, &finalCorr);
    initArray(num, finalCorr);
+
 
    for(int i = 0; i < num; i++)
    {
@@ -274,25 +199,28 @@ int main()
        finalCorr[i][j] = newCorr[sumIndexArray[i]][sumIndexArray[j]];
      }
    }
+   //free newCorr, done with
+   freeCorrArray(combinedWords, newCorr);
 
+   //init a list of words to the correct final size
    char **finalWords;
-   finalWords = (char**)malloc(sizeof(char*)* num);
-   for (int i = 0; i < num; i++)
-   {
-     finalWords[i] = (char*)malloc(sizeof(char*)* 8);
-   }
+   allocateWordsArray(num, &finalWords, 8);
 
    for(int i = 0; i < num; i++)
    {
      strcpy(finalWords[i], list1Plus2[sumIndexArray[i]]);
    }
+   //free list1Plus2, done with
+   freeWordArray(wordCount3, list1Plus2);
 
+   //print final correlation to file
    printMatrix(num, finalCorr, finalWords, newcorrfile);
 
+   //free data after printing to file
+   freeCorrArray(num, finalCorr);
+   freeWordArray(num, finalWords);
 
    fclose(corrfile1);
-   fclose(histinfile1);
    fclose(corrfile2);
-   fclose(histinfile2);
    fclose(newcorrfile);
 }
