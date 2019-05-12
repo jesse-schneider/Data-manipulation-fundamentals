@@ -16,7 +16,6 @@ int checkForDuplicates(char word[]);
 void printList(FILE *outfile);
 void insertAtHead(NODE *newNode);
 NODE * createNode(char wordIn[], int countInit, int size);
-void outputList();
 void addToArray(int popTopTen[], int popTopTenIndex[], char **list);
 
 #endif //LINKED_LIST

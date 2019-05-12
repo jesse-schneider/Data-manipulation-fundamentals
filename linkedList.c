@@ -48,17 +48,6 @@ void printList(FILE *outfile)
     }
 }
 
-void outputList()
-{
-    NODE *nextNode = head;
-
-    while(nextNode != NULL)
-    {
-        printf(" %7i %s \n", nextNode->count, nextNode->word);
-        nextNode = nextNode->next;
-    }
-}
-
 int checkForDuplicates(char word[])
 {
     NODE *nextNode = head;
