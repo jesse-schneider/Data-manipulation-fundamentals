@@ -256,6 +256,7 @@ void printMatrix(int wordCount, int **correlation, char **wordList, FILE *outfil
             fprintf(outfile, "%-*i ", 7, correlation[i][j]);
         }
         fprintf(outfile, "\n");
+        free(ptr);
     }
     printf("Matrix combined Generated!");
 }
