@@ -30,6 +30,7 @@ int countHistWords(FILE *histfile, int histMaxWord)
     {
         words++;
     }
+    free(word);
     return words;
 }
 
