@@ -149,7 +149,7 @@ int findLargestLine(FILE *inputfile)
   int max = 0;
   char c;
 
-  while(c = getc(inputfile) != EOF)
+  while((c = getc(inputfile)) != EOF)
   {
      if(c!='\n')
      {
