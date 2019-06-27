@@ -60,6 +60,8 @@ int main()
       strcpy(listofWords[tempIndex], word);
       tempIndex++;
     }
+    
+    free(word);
 
     tempIndex = 0;
     fclose(histinfile);
