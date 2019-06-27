@@ -124,8 +124,6 @@ int main()
       allocateWordsArray(wordCount, &listArr, size);
       addToArray(popTopTen, popTopTenIndex, listArr);
 
-      fclose(histinfile);
-
       //sort array values, preserve indexes when sorting
       sort(popTopTen, popTopTenIndex, wordCount);
 
@@ -134,4 +132,5 @@ int main()
         printf("%i %s \n", popTopTen[i], listArr[popTopTenIndex[i]]);
       }
     }
+    fclose(histinfile);
 }
