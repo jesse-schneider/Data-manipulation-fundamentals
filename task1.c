@@ -20,17 +20,18 @@ int main()
     strcat(histFilename, ".histogram.txt");
 
    inputfile = fopen(filename, "r");
+    
+     if (inputfile == NULL)
+    {
+        printf("Error opening file. \n");
+        return 1;
+    }
+    
    outfile = fopen(histFilename, "w");
 
    int size = longestWord(inputfile);
    fseek(inputfile, 0, SEEK_SET);
    char name[size];
-
-    if (inputfile == NULL)
-    {
-        printf("Error opening file. \n");
-        return 1;
-    }
 
     while (fscanf(inputfile, "%s", name) == 1)
     {
